@@ -1,6 +1,6 @@
 # Processador CPMath
 
-# Tasks
+# Próximos Passos
 - [ ] Entrada de Dados
 - [ ] Display de Dados
 - [ ] Testes de instruções
