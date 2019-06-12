@@ -16,11 +16,11 @@ module ALU (regA, regB, zero, result, aluOp);
 			6'b000111: result = !regA; 					//not
 			6'b001000: result = regA || regB; 			//or
 			6'b001001: result = regA > regB ? 1 : 0; 	//sgt
-			6'b001010: result = regA >= regB ? 1 : 0; //sget
+			6'b001010: result = regA >= regB ? 1 : 0; 	//sget
 			6'b001011: result = regA << regB; 			//sll
 			6'b001100: result = regA >> regB; 			//slr
 			6'b001101: result = regA < regB ? 1 : 0;	//slt
-			6'b001110: result = regA <= regB ? 1 : 0; //slteq
+			6'b001110: result = regA <= regB ? 1 : 0; 	//slteq
 			6'b001111: result = regA - regB; 			//sub
 			6'b010000: result = !(regA ^ regB); 		//xnor
 			6'b010001: result = regA ^ regB;			//xor

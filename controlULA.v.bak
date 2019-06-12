@@ -1,0 +1,11 @@
+module controlULA(_input, output_, ulaOp);
+	input [5:0] _input;
+	output [5:0] output_;
+	input [1:0] ulaOP;
+	always @ (*) begin
+		case(ulaOp)
+			2'b00: output_ = _input; // Tipo R
+			2'b10: output_ = 6'b000000; //soma
+			2'b01: outpot_ = 6'b001111; //subtrai
+	end
+endmodule 
