@@ -6,6 +6,7 @@ module CPMath(clk_50mhz, btn_reset, switch, btn_enter, display0, display1, displ
 		output [6:0] display0, display1, display2;
 		wire clk;
 		wire toDisplay;
+		wire [3:0] centena, dezena, unidade;
 		//Entradas e Saidas PC
 		wire [31:0] pcIn, pcOut;
 		
@@ -38,7 +39,7 @@ module CPMath(clk_50mhz, btn_reset, switch, btn_enter, display0, display1, displ
 		wire [15:0] stdin;
 		
 		//Unidade de processamento
-		wire pcWrite, memRead, memWrite, irWrite, regWrite, aSrc, pcCond;
+		wire pcWrite, memRead, memWrite, irWrite, regWrite, aSrc, pcCond, displayWrite;
 		wire [1:0] ulaOp;
 		wire switchRead, switchWrite;
 		//Program Counter
@@ -101,19 +102,24 @@ module CPMath(clk_50mhz, btn_reset, switch, btn_enter, display0, display1, displ
 		//Unidade de controle
 		controlUnit control(.opcode(opcode), .clk(clk), .reset(reset), .pcCond(pcCond), .pcWrite(pcWrite), .pcSrc(pcSrc),
 		.memSrc(memSrc), .memWrite(memWrite), .memRead(memRead), .irWrite(irWrite), .regSrc(regSrc), .dataSrc(dataSrc),
-		.regWrite(regWrite), .aSrc(aSrc), .bSrc(bSrc), .ulaOp(ulaOp));
+		.regWrite(regWrite), .aSrc(aSrc), .bSrc(bSrc), .ulaOp(ulaOp), .displayWrite(displayWrite));
 		
 		//Controle da ula
 		controlULA control1(._input(imme[6:0]), .output_(aluOp), .ulaOp(ulaOp), .opcode(opcode));
 		
-		//Encontrar digitos
-		binToBCD saida1(.number(toDisplay), .hundreds(), .tens(), .ones());
-				
 		//Saida de dados
 		GPR display(._input(aluOut), .output_(toDisplay));
 		
+		//Encontrar digitos
+		binToBCD saida1(.number(toDisplay), .hundreds(centena), .tens(dezena), .ones(unidade));
+
+		//Display
+		seteSegmentos digito2(._input(centena), .output_(display2), .displayWrite(displayWrite)); //Centena
+		seteSegmentos digito1(._input(dezena), .output_(display1), .displayWrite(displayWrite));  //Dezena
+		seteSegmentos digito0(._input(unidade), .output_(display0), .displayWrite(displayWrite));	//unidade
+		
 		//Entrada de dados
-		entrada Buffer(._input(switch), .output_(stdin), .switchRead(switchRead),  .switchWrite(enter), .reset(reset));
+		entrada Buffer(._input(switch), .output_(stdin), .switchRead(switchRead),  .switchWrite(enter), .reset(reset), .clk(clk));
 		
 		//Divisor de frequencia
 		divisorClk divClk1(.clk_50mhz(clk_50mhz), .clk(clk), .reset(reset)); 

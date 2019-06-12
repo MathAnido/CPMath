@@ -16,8 +16,9 @@ module entrada(_input, output_, switchRead, switchWrite, reset, clk);
 			output_ = ram[index];	
 			index = index - 4'd1;
 		end
-		else if(reset)
+		else if(reset) begin
 			index = 4'b0000;
 			output_ = 32'd0;
+		end
 	end
 endmodule

@@ -1,5 +1,5 @@
 module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite, memRead,
- irWrite, regSrc, dataSrc, regWrite, aSrc, bSrc, ulaOp);
+ irWrite, regSrc, dataSrc, regWrite, aSrc, bSrc, ulaOp, displayWrite);
 	input [5:0] opcode; //opcode
 	input clk; //clock
 	input reset; //reset button
@@ -12,6 +12,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 	output reg [1:0] dataSrc;
 	output reg aSrc;
 	output reg [1:0] bSrc, ulaOp; //controle ULA
+	output reg displayWrite;
 	//definiçao dos estados
 	parameter s0 = 4'd0, s1 = 4'd1, s2 = 4'd2, s3 = 4'd3, s4 = 4'd4, s5 = 4'd5, s6 = 4'd6,
 	s7 = 4'd7, s8 = 4'd8, s9 = 4'd9, s10 = 4'd10, s11 = 4'd11;

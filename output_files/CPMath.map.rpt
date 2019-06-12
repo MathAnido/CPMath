@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPMath
-Tue Jun 11 22:02:43 2019
+Tue Jun 11 22:52:07 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
 
 
@@ -21,21 +21,24 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
  13. Parameter Settings for User Entity Instance: DeBounce:btnReset
  14. Parameter Settings for User Entity Instance: DeBounce:btnEnter
  15. Port Connectivity Checks: "entrada:Buffer"
- 16. Port Connectivity Checks: "controlULA:control1"
- 17. Port Connectivity Checks: "controlUnit:control"
- 18. Port Connectivity Checks: "mux5:muxReg"
- 19. Port Connectivity Checks: "mux32B:muxData"
- 20. Port Connectivity Checks: "SL2:sl2"
- 21. Port Connectivity Checks: "SL2:sl1"
- 22. Port Connectivity Checks: "mux32B:muxPC"
- 23. Port Connectivity Checks: "ALU:ula"
- 24. Port Connectivity Checks: "mux32B:muxB"
- 25. Port Connectivity Checks: "registers:banco"
- 26. Port Connectivity Checks: "IR:inst"
- 27. Port Connectivity Checks: "PC:programCounter"
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Messages
+ 16. Port Connectivity Checks: "binToBCD:saida1"
+ 17. Port Connectivity Checks: "GPR:display"
+ 18. Port Connectivity Checks: "controlULA:control1"
+ 19. Port Connectivity Checks: "controlUnit:control"
+ 20. Port Connectivity Checks: "mux5:muxReg"
+ 21. Port Connectivity Checks: "mux32B:muxData"
+ 22. Port Connectivity Checks: "SL2:sl2"
+ 23. Port Connectivity Checks: "SL2:sl1"
+ 24. Port Connectivity Checks: "mux32B:muxPC"
+ 25. Port Connectivity Checks: "ALU:ula"
+ 26. Port Connectivity Checks: "mux32B:muxB"
+ 27. Port Connectivity Checks: "registers:banco"
+ 28. Port Connectivity Checks: "IR:inst"
+ 29. Port Connectivity Checks: "memory:mem"
+ 30. Port Connectivity Checks: "PC:programCounter"
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -61,7 +64,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 11 22:02:43 2019           ;
+; Analysis & Synthesis Status        ; Successful - Tue Jun 11 22:52:07 2019           ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Standard Edition ;
 ; Revision Name                      ; CPMath                                          ;
 ; Top-level Entity Name              ; CPMath                                          ;
@@ -179,29 +182,31 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                         ;
-+----------------------------------+-----------------+------------------------+----------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path           ; Library ;
-+----------------------------------+-----------------+------------------------+----------------------------------------+---------+
-; SL2.v                            ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/SL2.v         ;         ;
-; signExtend.v                     ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/signExtend.v  ;         ;
-; registers.v                      ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/registers.v   ;         ;
-; PC.v                             ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/PC.v          ;         ;
-; mux32B.v                         ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/mux32B.v      ;         ;
-; mux32.v                          ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/mux32.v       ;         ;
-; mux5.v                           ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/mux5.v        ;         ;
-; memory.v                         ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/memory.v      ;         ;
-; IR.v                             ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/IR.v          ;         ;
-; GPR.v                            ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/GPR.v         ;         ;
-; Entrada.v                        ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/Entrada.v     ;         ;
-; controlUnit.v                    ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/controlUnit.v ;         ;
-; ALU.v                            ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/ALU.v         ;         ;
-; controlULA.v                     ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/controlULA.v  ;         ;
-; CPMath.v                         ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/CPMath.v      ;         ;
-; divisorClk.v                     ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/divisorClk.v  ;         ;
-; DeBounce.v                       ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/DeBounce.v    ;         ;
-+----------------------------------+-----------------+------------------------+----------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                           ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path             ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
+; SL2.v                            ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/SL2.v           ;         ;
+; signExtend.v                     ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/signExtend.v    ;         ;
+; registers.v                      ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/registers.v     ;         ;
+; PC.v                             ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/PC.v            ;         ;
+; mux32B.v                         ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/mux32B.v        ;         ;
+; mux32.v                          ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/mux32.v         ;         ;
+; mux5.v                           ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/mux5.v          ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/memory.v        ;         ;
+; IR.v                             ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/IR.v            ;         ;
+; GPR.v                            ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/GPR.v           ;         ;
+; Entrada.v                        ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/Entrada.v       ;         ;
+; controlUnit.v                    ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/controlUnit.v   ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/ALU.v           ;         ;
+; controlULA.v                     ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/controlULA.v    ;         ;
+; CPMath.v                         ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/CPMath.v        ;         ;
+; divisorClk.v                     ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/divisorClk.v    ;         ;
+; DeBounce.v                       ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/DeBounce.v      ;         ;
+; binToBCD.v                       ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/binToBCD.v      ;         ;
+; seteSegmentos.v                  ; yes             ; User Verilog HDL File  ; /home-local/aluno/CPMath/seteSegmentos.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -271,7 +276,6 @@ Encoding Type:  One-Hot
 +-----------------------------------------+----------------------------------------+
 ; Register name                           ; Reason for Removal                     ;
 +-----------------------------------------+----------------------------------------+
-; entrada:Buffer|output_[0..5]            ; Stuck at GND due to stuck port clock   ;
 ; IR:inst|opcode[2]                       ; Lost fanout                            ;
 ; memory:mem|memOut[28]                   ; Lost fanout                            ;
 ; IR:inst|opcode[1]                       ; Lost fanout                            ;
@@ -322,13 +326,18 @@ Encoding Type:  One-Hot
 ; memory:mem|memOut[29]                   ; Lost fanout                            ;
 ; IR:inst|opcode[4]                       ; Stuck at GND due to stuck port clock   ;
 ; memory:mem|memOut[30]                   ; Lost fanout                            ;
+; memory:mem|memOut[0..5]                 ; Stuck at GND due to stuck port clock   ;
 ; PC:programCounter|output_[0..31]        ; Stuck at GND due to stuck port clock   ;
-; memory:mem|memOut[0..5]                 ; Stuck at GND due to stuck port data_in ;
+; DeBounce:btnEnter|DB_out                ; Lost fanout                            ;
+; DeBounce:btnEnter|q_reg[0..10]          ; Lost fanout                            ;
+; DeBounce:btnEnter|DFF2                  ; Lost fanout                            ;
+; DeBounce:btnEnter|DFF1                  ; Lost fanout                            ;
+; entrada:Buffer|output_[0..5]            ; Lost fanout                            ;
+; entrada:Buffer|index[0..3]              ; Lost fanout                            ;
 ; DeBounce:btnReset|DFF2                  ; Stuck at GND due to stuck port data_in ;
-; DeBounce:btnReset|DB_out                ; Stuck at GND due to stuck port data_in ;
-; DeBounce:btnReset|q_reg[0]              ; Stuck at GND due to stuck port data_in ;
 ; DeBounce:btnReset|DFF1                  ; Stuck at GND due to stuck port data_in ;
-; DeBounce:btnReset|q_reg[1..10]          ; Stuck at GND due to stuck port data_in ;
+; DeBounce:btnReset|DB_out                ; Stuck at GND due to stuck port data_in ;
+; DeBounce:btnReset|q_reg[0..10]          ; Stuck at GND due to stuck port data_in ;
 ; controlUnit:control|estado.s2           ; Lost fanout                            ;
 ; controlUnit:control|estado.s3           ; Lost fanout                            ;
 ; controlUnit:control|estado.s10          ; Lost fanout                            ;
@@ -347,87 +356,87 @@ Encoding Type:  One-Hot
 ; controlUnit:control|estado.s1           ; Lost fanout                            ;
 ; controlUnit:control|estado.s6           ; Lost fanout                            ;
 ; controlUnit:control|estado.s7           ; Lost fanout                            ;
-; Total Number of Removed Registers = 149 ;                                        ;
+; Total Number of Removed Registers = 167 ;                                        ;
 +-----------------------------------------+----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                      ;
-+-------------------------------+---------------------------+--------------------------------------------------------------------------------------+
-; Register name                 ; Reason for Removal        ; Registers Removed due to This Register                                               ;
-+-------------------------------+---------------------------+--------------------------------------------------------------------------------------+
-; IR:inst|imme[5]               ; Stuck at GND              ; PC:programCounter|output_[11], PC:programCounter|output_[12],                        ;
-;                               ; due to stuck port clock   ; PC:programCounter|output_[13], PC:programCounter|output_[14],                        ;
-;                               ;                           ; PC:programCounter|output_[15], PC:programCounter|output_[16],                        ;
-;                               ;                           ; PC:programCounter|output_[17], PC:programCounter|output_[18],                        ;
-;                               ;                           ; PC:programCounter|output_[19], PC:programCounter|output_[20],                        ;
-;                               ;                           ; PC:programCounter|output_[21], PC:programCounter|output_[22],                        ;
-;                               ;                           ; PC:programCounter|output_[23]                                                        ;
-; DeBounce:btnReset|DFF2        ; Stuck at GND              ; DeBounce:btnReset|q_reg[10], DeBounce:btnReset|q_reg[9], DeBounce:btnReset|q_reg[8], ;
-;                               ; due to stuck port data_in ; DeBounce:btnReset|q_reg[7], DeBounce:btnReset|q_reg[6], DeBounce:btnReset|q_reg[5],  ;
-;                               ;                           ; DeBounce:btnReset|q_reg[4], DeBounce:btnReset|q_reg[3], DeBounce:btnReset|q_reg[2]   ;
-; IR:inst|imme[8]               ; Stuck at GND              ; memory:mem|memOut[8], PC:programCounter|output_[8], PC:programCounter|output_[0],    ;
-;                               ; due to stuck port clock   ; PC:programCounter|output_[10], PC:programCounter|output_[26],                        ;
-;                               ;                           ; PC:programCounter|output_[27], memory:mem|memOut[3]                                  ;
-; entrada:Buffer|output_[5]     ; Stuck at GND              ; PC:programCounter|output_[28], PC:programCounter|output_[29],                        ;
-;                               ; due to stuck port clock   ; PC:programCounter|output_[30], PC:programCounter|output_[31], memory:mem|memOut[0],  ;
-;                               ;                           ; memory:mem|memOut[1], memory:mem|memOut[2]                                           ;
-; controlUnit:control|estado.s2 ; Lost Fanouts              ; divisorClk:divClk1|clk, divisorClk:divClk1|cont[17], divisorClk:divClk1|cont[16],    ;
-;                               ;                           ; divisorClk:divClk1|cont[15], divisorClk:divClk1|cont[14],                            ;
-;                               ;                           ; divisorClk:divClk1|cont[13]                                                          ;
-; IR:inst|imme[7]               ; Stuck at GND              ; memory:mem|memOut[7], PC:programCounter|output_[9]                                   ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; controlUnit:control|estado~6  ; Lost Fanouts              ; controlUnit:control|estado.s0, controlUnit:control|estado.s6                         ;
-; IR:inst|rs[1]                 ; Stuck at GND              ; memory:mem|memOut[22]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|rs[0]                 ; Stuck at GND              ; memory:mem|memOut[21]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|rt[2]                 ; Stuck at GND              ; memory:mem|memOut[18]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|rs[2]                 ; Stuck at GND              ; memory:mem|memOut[23]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|rs[3]                 ; Stuck at GND              ; memory:mem|memOut[24]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|rs[4]                 ; Stuck at GND              ; memory:mem|memOut[25]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|opcode[0]             ; Stuck at GND              ; memory:mem|memOut[26]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|opcode[3]             ; Stuck at GND              ; memory:mem|memOut[29]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|opcode[4]             ; Stuck at GND              ; memory:mem|memOut[30]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; DeBounce:btnReset|DB_out      ; Stuck at GND              ; DeBounce:btnReset|DFF1                                                               ;
-;                               ; due to stuck port data_in ;                                                                                      ;
-; controlUnit:control|estado~7  ; Lost Fanouts              ; controlUnit:control|estado.s1                                                        ;
-; controlUnit:control|estado.s4 ; Stuck at GND              ; controlUnit:control|estado.s7                                                        ;
-;                               ; due to stuck port data_in ;                                                                                      ;
-; IR:inst|rt[4]                 ; Stuck at GND              ; memory:mem|memOut[20]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|rt[3]                 ; Stuck at GND              ; memory:mem|memOut[19]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|rt[1]                 ; Stuck at GND              ; memory:mem|memOut[17]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|rt[0]                 ; Stuck at GND              ; memory:mem|memOut[16]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|imme[15]              ; Stuck at GND              ; memory:mem|memOut[15]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|imme[14]              ; Stuck at GND              ; memory:mem|memOut[14]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|imme[13]              ; Stuck at GND              ; memory:mem|memOut[13]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|imme[12]              ; Stuck at GND              ; memory:mem|memOut[12]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|imme[11]              ; Stuck at GND              ; memory:mem|memOut[11]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|imme[10]              ; Stuck at GND              ; memory:mem|memOut[10]                                                                ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|imme[9]               ; Stuck at GND              ; memory:mem|memOut[9]                                                                 ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|imme[6]               ; Stuck at GND              ; memory:mem|memOut[6]                                                                 ;
-;                               ; due to stuck port clock   ;                                                                                      ;
-; IR:inst|opcode[1]             ; Lost Fanouts              ; memory:mem|memOut[27]                                                                ;
-; IR:inst|opcode[2]             ; Lost Fanouts              ; memory:mem|memOut[28]                                                                ;
-+-------------------------------+---------------------------+--------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                         ;
++-------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
+; Register name                 ; Reason for Removal        ; Registers Removed due to This Register                                                  ;
++-------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
+; IR:inst|imme[8]               ; Stuck at GND              ; memory:mem|memOut[8], memory:mem|memOut[3], memory:mem|memOut[2], memory:mem|memOut[1], ;
+;                               ; due to stuck port clock   ; PC:programCounter|output_[8], PC:programCounter|output_[0],                             ;
+;                               ;                           ; PC:programCounter|output_[10], PC:programCounter|output_[26],                           ;
+;                               ;                           ; PC:programCounter|output_[27], PC:programCounter|output_[28],                           ;
+;                               ;                           ; PC:programCounter|output_[29], PC:programCounter|output_[30],                           ;
+;                               ;                           ; PC:programCounter|output_[31]                                                           ;
+; IR:inst|imme[5]               ; Stuck at GND              ; PC:programCounter|output_[11], PC:programCounter|output_[12],                           ;
+;                               ; due to stuck port clock   ; PC:programCounter|output_[13], PC:programCounter|output_[14],                           ;
+;                               ;                           ; PC:programCounter|output_[15], PC:programCounter|output_[16],                           ;
+;                               ;                           ; PC:programCounter|output_[17], PC:programCounter|output_[18],                           ;
+;                               ;                           ; PC:programCounter|output_[19], PC:programCounter|output_[20],                           ;
+;                               ;                           ; PC:programCounter|output_[21], PC:programCounter|output_[22],                           ;
+;                               ;                           ; PC:programCounter|output_[23]                                                           ;
+; DeBounce:btnReset|DFF2        ; Stuck at GND              ; DeBounce:btnReset|q_reg[0], DeBounce:btnReset|q_reg[1], DeBounce:btnReset|q_reg[2],     ;
+;                               ; due to stuck port data_in ; DeBounce:btnReset|q_reg[3], DeBounce:btnReset|q_reg[4], DeBounce:btnReset|q_reg[5],     ;
+;                               ;                           ; DeBounce:btnReset|q_reg[6], DeBounce:btnReset|q_reg[7], DeBounce:btnReset|q_reg[8],     ;
+;                               ;                           ; DeBounce:btnReset|q_reg[9], DeBounce:btnReset|q_reg[10]                                 ;
+; entrada:Buffer|output_[4]     ; Lost Fanouts              ; divisorClk:divClk1|clk, divisorClk:divClk1|cont[17], divisorClk:divClk1|cont[16],       ;
+;                               ;                           ; divisorClk:divClk1|cont[15], divisorClk:divClk1|cont[14],                               ;
+;                               ;                           ; divisorClk:divClk1|cont[13]                                                             ;
+; IR:inst|imme[7]               ; Stuck at GND              ; memory:mem|memOut[7], PC:programCounter|output_[9]                                      ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; controlUnit:control|estado~6  ; Lost Fanouts              ; controlUnit:control|estado.s0, controlUnit:control|estado.s6                            ;
+; DeBounce:btnEnter|DB_out      ; Lost Fanouts              ; DeBounce:btnEnter|q_reg[10], DeBounce:btnEnter|DFF2                                     ;
+; IR:inst|rt[0]                 ; Stuck at GND              ; memory:mem|memOut[16], memory:mem|memOut[0]                                             ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|rs[2]                 ; Stuck at GND              ; memory:mem|memOut[23]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|rs[1]                 ; Stuck at GND              ; memory:mem|memOut[22]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|rt[3]                 ; Stuck at GND              ; memory:mem|memOut[19]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|rs[3]                 ; Stuck at GND              ; memory:mem|memOut[24]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|rs[4]                 ; Stuck at GND              ; memory:mem|memOut[25]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|opcode[0]             ; Stuck at GND              ; memory:mem|memOut[26]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|opcode[3]             ; Stuck at GND              ; memory:mem|memOut[29]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|opcode[4]             ; Stuck at GND              ; memory:mem|memOut[30]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; controlUnit:control|estado~7  ; Lost Fanouts              ; controlUnit:control|estado.s1                                                           ;
+; controlUnit:control|estado.s4 ; Stuck at GND              ; controlUnit:control|estado.s7                                                           ;
+;                               ; due to stuck port data_in ;                                                                                         ;
+; IR:inst|rs[0]                 ; Stuck at GND              ; memory:mem|memOut[21]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|rt[4]                 ; Stuck at GND              ; memory:mem|memOut[20]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|opcode[2]             ; Lost Fanouts              ; memory:mem|memOut[28]                                                                   ;
+; IR:inst|rt[2]                 ; Stuck at GND              ; memory:mem|memOut[18]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|rt[1]                 ; Stuck at GND              ; memory:mem|memOut[17]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|imme[15]              ; Stuck at GND              ; memory:mem|memOut[15]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|imme[14]              ; Stuck at GND              ; memory:mem|memOut[14]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|imme[13]              ; Stuck at GND              ; memory:mem|memOut[13]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|imme[12]              ; Stuck at GND              ; memory:mem|memOut[12]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|imme[11]              ; Stuck at GND              ; memory:mem|memOut[11]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|imme[10]              ; Stuck at GND              ; memory:mem|memOut[10]                                                                   ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|imme[9]               ; Stuck at GND              ; memory:mem|memOut[9]                                                                    ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|imme[6]               ; Stuck at GND              ; memory:mem|memOut[6]                                                                    ;
+;                               ; due to stuck port clock   ;                                                                                         ;
+; IR:inst|opcode[1]             ; Lost Fanouts              ; memory:mem|memOut[27]                                                                   ;
++-------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -486,14 +495,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "entrada:Buffer"                                                                                                                                 ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                                                                                      ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; output_ ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (16 bits) it drives; bit(s) "output_[31..16]" have no fanouts               ;
-; clk     ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "entrada:Buffer"                                                                                                                   ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                        ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; output_ ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (16 bits) it drives; bit(s) "output_[31..16]" have no fanouts ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "binToBCD:saida1"                                                                                                                                  ;
++--------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                          ;
++--------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; number ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "number[31..1]" will be connected to GND. ;
++--------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "GPR:display"                                                                                                                    ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                      ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
+; output_ ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "output_[31..1]" have no fanouts ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -609,6 +635,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory:mem"                                                                                                                                 ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; clk  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "PC:programCounter"                                                                                                                          ;
 +------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port ; Type  ; Severity ; Details                                                                                                                                      ;
@@ -647,7 +682,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
-    Info: Processing started: Tue Jun 11 22:02:32 2019
+    Info: Processing started: Tue Jun 11 22:51:55 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPMath -c CPMath
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -689,51 +724,58 @@ Info (12021): Found 1 design units, including 1 entities, in source file divisor
     Info (12023): Found entity 1: divisorClk File: /home-local/aluno/CPMath/divisorClk.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file DeBounce.v
     Info (12023): Found entity 1: DeBounce File: /home-local/aluno/CPMath/DeBounce.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file binToBCD.v
+    Info (12023): Found entity 1: binToBCD File: /home-local/aluno/CPMath/binToBCD.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file seteSegmentos.v
+    Info (12023): Found entity 1: seteSegmentos File: /home-local/aluno/CPMath/seteSegmentos.v Line: 1
 Info (12127): Elaborating entity "CPMath" for the top level hierarchy
-Warning (10034): Output port "display0" at CPMath.v(6) has no driver File: /home-local/aluno/CPMath/CPMath.v Line: 6
-Warning (10034): Output port "display1" at CPMath.v(6) has no driver File: /home-local/aluno/CPMath/CPMath.v Line: 6
-Warning (10034): Output port "display2" at CPMath.v(6) has no driver File: /home-local/aluno/CPMath/CPMath.v Line: 6
-Info (12128): Elaborating entity "PC" for hierarchy "PC:programCounter" File: /home-local/aluno/CPMath/CPMath.v Line: 44
-Info (12128): Elaborating entity "mux32" for hierarchy "mux32:muxMem" File: /home-local/aluno/CPMath/CPMath.v Line: 47
-Info (12128): Elaborating entity "memory" for hierarchy "memory:mem" File: /home-local/aluno/CPMath/CPMath.v Line: 51
-Info (12128): Elaborating entity "IR" for hierarchy "IR:inst" File: /home-local/aluno/CPMath/CPMath.v Line: 54
-Info (12128): Elaborating entity "registers" for hierarchy "registers:banco" File: /home-local/aluno/CPMath/CPMath.v Line: 58
-Info (12128): Elaborating entity "GPR" for hierarchy "GPR:A" File: /home-local/aluno/CPMath/CPMath.v Line: 61
-Info (12128): Elaborating entity "mux32B" for hierarchy "mux32B:muxB" File: /home-local/aluno/CPMath/CPMath.v Line: 69
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ula" File: /home-local/aluno/CPMath/CPMath.v Line: 72
-Info (12128): Elaborating entity "signExtend" for hierarchy "signExtend:se1" File: /home-local/aluno/CPMath/CPMath.v Line: 85
-Info (12128): Elaborating entity "SL2" for hierarchy "SL2:sl1" File: /home-local/aluno/CPMath/CPMath.v Line: 88
-Info (12128): Elaborating entity "mux5" for hierarchy "mux5:muxReg" File: /home-local/aluno/CPMath/CPMath.v Line: 98
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control" File: /home-local/aluno/CPMath/CPMath.v Line: 103
-Info (12128): Elaborating entity "controlULA" for hierarchy "controlULA:control1" File: /home-local/aluno/CPMath/CPMath.v Line: 106
-Info (12128): Elaborating entity "entrada" for hierarchy "entrada:Buffer" File: /home-local/aluno/CPMath/CPMath.v Line: 113
-Info (12128): Elaborating entity "divisorClk" for hierarchy "divisorClk:divClk1" File: /home-local/aluno/CPMath/CPMath.v Line: 116
-Info (12128): Elaborating entity "DeBounce" for hierarchy "DeBounce:btnReset" File: /home-local/aluno/CPMath/CPMath.v Line: 119
+Info (12128): Elaborating entity "PC" for hierarchy "PC:programCounter" File: /home-local/aluno/CPMath/CPMath.v Line: 46
+Info (12128): Elaborating entity "mux32" for hierarchy "mux32:muxMem" File: /home-local/aluno/CPMath/CPMath.v Line: 49
+Info (12128): Elaborating entity "memory" for hierarchy "memory:mem" File: /home-local/aluno/CPMath/CPMath.v Line: 53
+Info (12128): Elaborating entity "IR" for hierarchy "IR:inst" File: /home-local/aluno/CPMath/CPMath.v Line: 56
+Info (12128): Elaborating entity "registers" for hierarchy "registers:banco" File: /home-local/aluno/CPMath/CPMath.v Line: 60
+Info (12128): Elaborating entity "GPR" for hierarchy "GPR:A" File: /home-local/aluno/CPMath/CPMath.v Line: 63
+Info (12128): Elaborating entity "mux32B" for hierarchy "mux32B:muxB" File: /home-local/aluno/CPMath/CPMath.v Line: 71
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ula" File: /home-local/aluno/CPMath/CPMath.v Line: 74
+Info (12128): Elaborating entity "signExtend" for hierarchy "signExtend:se1" File: /home-local/aluno/CPMath/CPMath.v Line: 87
+Info (12128): Elaborating entity "SL2" for hierarchy "SL2:sl1" File: /home-local/aluno/CPMath/CPMath.v Line: 90
+Info (12128): Elaborating entity "mux5" for hierarchy "mux5:muxReg" File: /home-local/aluno/CPMath/CPMath.v Line: 100
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control" File: /home-local/aluno/CPMath/CPMath.v Line: 105
+Warning (10034): Output port "displayWrite" at controlUnit.v(15) has no driver File: /home-local/aluno/CPMath/controlUnit.v Line: 15
+Info (12128): Elaborating entity "controlULA" for hierarchy "controlULA:control1" File: /home-local/aluno/CPMath/CPMath.v Line: 108
+Info (12128): Elaborating entity "binToBCD" for hierarchy "binToBCD:saida1" File: /home-local/aluno/CPMath/CPMath.v Line: 114
+Warning (10230): Verilog HDL assignment warning at binToBCD.v(16): truncated value with size 32 to match size of target (8) File: /home-local/aluno/CPMath/binToBCD.v Line: 16
+Warning (10230): Verilog HDL assignment warning at binToBCD.v(21): truncated value with size 32 to match size of target (4) File: /home-local/aluno/CPMath/binToBCD.v Line: 21
+Warning (10230): Verilog HDL assignment warning at binToBCD.v(24): truncated value with size 32 to match size of target (4) File: /home-local/aluno/CPMath/binToBCD.v Line: 24
+Info (12128): Elaborating entity "seteSegmentos" for hierarchy "seteSegmentos:digito2" File: /home-local/aluno/CPMath/CPMath.v Line: 117
+Info (12128): Elaborating entity "entrada" for hierarchy "entrada:Buffer" File: /home-local/aluno/CPMath/CPMath.v Line: 122
+Info (12128): Elaborating entity "divisorClk" for hierarchy "divisorClk:divClk1" File: /home-local/aluno/CPMath/CPMath.v Line: 125
+Info (12128): Elaborating entity "DeBounce" for hierarchy "DeBounce:btnReset" File: /home-local/aluno/CPMath/CPMath.v Line: 128
 Warning (10230): Verilog HDL assignment warning at DeBounce.v(51): truncated value with size 32 to match size of target (11) File: /home-local/aluno/CPMath/DeBounce.v Line: 51
-Warning (12241): 11 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 14 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "display0[0]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display0[1]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display0[2]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display0[3]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display0[4]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display0[5]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display0[6]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display1[0]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display1[1]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display1[2]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display1[3]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display1[4]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display1[5]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display1[6]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display2[0]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display2[1]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display2[2]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display2[3]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display2[4]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display2[5]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-    Warning (13410): Pin "display2[6]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 6
-Info (17049): 57 registers lost all their fanouts during netlist optimizations.
+    Warning (13410): Pin "display0[0]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display0[1]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display0[2]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display0[3]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display0[4]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display0[5]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display0[6]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display1[0]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display1[1]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display1[2]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display1[3]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display1[4]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display1[5]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display1[6]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display2[0]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display2[1]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display2[2]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display2[3]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display2[4]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display2[5]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+    Warning (13410): Pin "display2[6]" is stuck at VCC File: /home-local/aluno/CPMath/CPMath.v Line: 6
+Info (17049): 81 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 19 input pin(s) that do not drive logic
@@ -759,10 +801,10 @@ Warning (21074): Design contains 19 input pin(s) that do not drive logic
 Info (21057): Implemented 40 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 21 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
-    Info: Peak virtual memory: 933 megabytes
-    Info: Processing ended: Tue Jun 11 22:02:43 2019
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
+    Info: Peak virtual memory: 934 megabytes
+    Info: Processing ended: Tue Jun 11 22:52:07 2019
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:27
 
 
