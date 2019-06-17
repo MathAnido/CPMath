@@ -1,10 +1,10 @@
-module CPMath(clk_50mhz, btn_reset, switch, btn_enter, display0, display1, display2);
+module CPMath(clk, btn_reset, switch, btn_enter, display0, display1, display2, visor);
 		//Entradas e Saidas do processador
-		input clk_50mhz, btn_reset, btn_enter;
+		input btn_reset, btn_enter;
 		wire reset, enter;
 		input [15:0] switch;
 		output [6:0] display0, display1, display2;
-		wire clk;
+		input clk;
 		wire toDisplay;
 		wire [3:0] centena, dezena, unidade;
 		//Entradas e Saidas PC
@@ -35,6 +35,9 @@ module CPMath(clk_50mhz, btn_reset, switch, btn_enter, display0, display1, displ
 		wire pcSrc, regSrc, memSrc;
 		wire [1:0] dataSrc;
 		
+		//teste
+		output [31:0]visor;
+		
 		//Entrada
 		wire [15:0] stdin;
 		
@@ -43,14 +46,14 @@ module CPMath(clk_50mhz, btn_reset, switch, btn_enter, display0, display1, displ
 		wire [1:0] ulaOp;
 		wire switchRead, switchWrite;
 		//Program Counter
-		PC programCounter(._input(pcIn), .output_(pcOut), .pcWrite(pcWrite));
+		PC programCounter(._input(pcIn), .output_(pcOut), .pcWrite(pcWrite || (pcCond & zero)), .reset(reset));
 		
 		//Mux para a Memoria
 		mux32 muxMem(._input0(pcOut), ._input1(aluOut), .sel(memSrc), .output_(adress));
 		
 		//Memoria principal
 		memory mem(.adress(adress), .data(memInput), .memOut(memOutput), .memRead(memRead),
-	.memWrite(memWrite));
+	.memWrite(memWrite), .reset(reset));
 		
 		//Instruction Register
 		IR inst(.inst(memOutput), .opcode(opcode), .rs(rs), .rt(rt), .imme(imme), .irWrite(irWrite));
@@ -119,14 +122,16 @@ module CPMath(clk_50mhz, btn_reset, switch, btn_enter, display0, display1, displ
 		seteSegmentos digito0(._input(unidade), .output_(display0), .displayWrite(displayWrite));	//unidade
 		
 		//Entrada de dados
-		entrada Buffer(._input(switch), .output_(stdin), .switchRead(switchRead),  .switchWrite(enter), .reset(reset), .clk(clk));
+		Entrada Buffer(._input(switch), .output_(stdin), .switchRead(switchRead),  .switchWrite(enter), .reset(reset), .clk(clk), .haveData(haveData));
 		
 		//Divisor de frequencia
-		divisorClk divClk1(.clk_50mhz(clk_50mhz), .clk(clk), .reset(reset)); 
+		//divisorClk divClk1(.clk_50mhz(clk_50mhz), .clk(clk), .reset(reset)); 
 		
 		//Debounce reset
 		DeBounce btnReset(.clk(clk_50mhz), .n_reset(reset), .button_in(btn_reset), .DB_out(reset));
 		
 		//Debounce enter
 		DeBounce btnEnter(.clk(clk_50mhz), .n_reset(reset), .button_in(btn_enter), .DB_out(enter));
+		
+		assign visor = pcOut;
 endmodule

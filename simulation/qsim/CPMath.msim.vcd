@@ -1,0 +1,595 @@
+$comment
+	File created using the following command:
+		vcd file CPMath.msim.vcd -direction
+$end
+$date
+	Sun Jun 16 23:56:54 2019
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module CPMath_vlg_vec_tst $end
+$var reg 1 ! btn_enter $end
+$var reg 1 " btn_reset $end
+$var reg 1 # clk $end
+$var reg 16 $ switch [15:0] $end
+$var wire 1 % display0 [6] $end
+$var wire 1 & display0 [5] $end
+$var wire 1 ' display0 [4] $end
+$var wire 1 ( display0 [3] $end
+$var wire 1 ) display0 [2] $end
+$var wire 1 * display0 [1] $end
+$var wire 1 + display0 [0] $end
+$var wire 1 , display1 [6] $end
+$var wire 1 - display1 [5] $end
+$var wire 1 . display1 [4] $end
+$var wire 1 / display1 [3] $end
+$var wire 1 0 display1 [2] $end
+$var wire 1 1 display1 [1] $end
+$var wire 1 2 display1 [0] $end
+$var wire 1 3 display2 [6] $end
+$var wire 1 4 display2 [5] $end
+$var wire 1 5 display2 [4] $end
+$var wire 1 6 display2 [3] $end
+$var wire 1 7 display2 [2] $end
+$var wire 1 8 display2 [1] $end
+$var wire 1 9 display2 [0] $end
+$var wire 1 : visor [31] $end
+$var wire 1 ; visor [30] $end
+$var wire 1 < visor [29] $end
+$var wire 1 = visor [28] $end
+$var wire 1 > visor [27] $end
+$var wire 1 ? visor [26] $end
+$var wire 1 @ visor [25] $end
+$var wire 1 A visor [24] $end
+$var wire 1 B visor [23] $end
+$var wire 1 C visor [22] $end
+$var wire 1 D visor [21] $end
+$var wire 1 E visor [20] $end
+$var wire 1 F visor [19] $end
+$var wire 1 G visor [18] $end
+$var wire 1 H visor [17] $end
+$var wire 1 I visor [16] $end
+$var wire 1 J visor [15] $end
+$var wire 1 K visor [14] $end
+$var wire 1 L visor [13] $end
+$var wire 1 M visor [12] $end
+$var wire 1 N visor [11] $end
+$var wire 1 O visor [10] $end
+$var wire 1 P visor [9] $end
+$var wire 1 Q visor [8] $end
+$var wire 1 R visor [7] $end
+$var wire 1 S visor [6] $end
+$var wire 1 T visor [5] $end
+$var wire 1 U visor [4] $end
+$var wire 1 V visor [3] $end
+$var wire 1 W visor [2] $end
+$var wire 1 X visor [1] $end
+$var wire 1 Y visor [0] $end
+
+$scope module i1 $end
+$var wire 1 Z gnd $end
+$var wire 1 [ vcc $end
+$var wire 1 \ unknown $end
+$var tri1 1 ] devclrn $end
+$var tri1 1 ^ devpor $end
+$var tri1 1 _ devoe $end
+$var wire 1 ` btn_reset~input_o $end
+$var wire 1 a switch[0]~input_o $end
+$var wire 1 b switch[1]~input_o $end
+$var wire 1 c switch[2]~input_o $end
+$var wire 1 d switch[3]~input_o $end
+$var wire 1 e switch[4]~input_o $end
+$var wire 1 f switch[5]~input_o $end
+$var wire 1 g switch[6]~input_o $end
+$var wire 1 h switch[7]~input_o $end
+$var wire 1 i switch[8]~input_o $end
+$var wire 1 j switch[9]~input_o $end
+$var wire 1 k switch[10]~input_o $end
+$var wire 1 l switch[11]~input_o $end
+$var wire 1 m switch[12]~input_o $end
+$var wire 1 n switch[13]~input_o $end
+$var wire 1 o switch[14]~input_o $end
+$var wire 1 p switch[15]~input_o $end
+$var wire 1 q btn_enter~input_o $end
+$var wire 1 r clk~input_o $end
+$var wire 1 s display0[0]~output_o $end
+$var wire 1 t display0[1]~output_o $end
+$var wire 1 u display0[2]~output_o $end
+$var wire 1 v display0[3]~output_o $end
+$var wire 1 w display0[4]~output_o $end
+$var wire 1 x display0[5]~output_o $end
+$var wire 1 y display0[6]~output_o $end
+$var wire 1 z display1[0]~output_o $end
+$var wire 1 { display1[1]~output_o $end
+$var wire 1 | display1[2]~output_o $end
+$var wire 1 } display1[3]~output_o $end
+$var wire 1 ~ display1[4]~output_o $end
+$var wire 1 !! display1[5]~output_o $end
+$var wire 1 "! display1[6]~output_o $end
+$var wire 1 #! display2[0]~output_o $end
+$var wire 1 $! display2[1]~output_o $end
+$var wire 1 %! display2[2]~output_o $end
+$var wire 1 &! display2[3]~output_o $end
+$var wire 1 '! display2[4]~output_o $end
+$var wire 1 (! display2[5]~output_o $end
+$var wire 1 )! display2[6]~output_o $end
+$var wire 1 *! visor[0]~output_o $end
+$var wire 1 +! visor[1]~output_o $end
+$var wire 1 ,! visor[2]~output_o $end
+$var wire 1 -! visor[3]~output_o $end
+$var wire 1 .! visor[4]~output_o $end
+$var wire 1 /! visor[5]~output_o $end
+$var wire 1 0! visor[6]~output_o $end
+$var wire 1 1! visor[7]~output_o $end
+$var wire 1 2! visor[8]~output_o $end
+$var wire 1 3! visor[9]~output_o $end
+$var wire 1 4! visor[10]~output_o $end
+$var wire 1 5! visor[11]~output_o $end
+$var wire 1 6! visor[12]~output_o $end
+$var wire 1 7! visor[13]~output_o $end
+$var wire 1 8! visor[14]~output_o $end
+$var wire 1 9! visor[15]~output_o $end
+$var wire 1 :! visor[16]~output_o $end
+$var wire 1 ;! visor[17]~output_o $end
+$var wire 1 <! visor[18]~output_o $end
+$var wire 1 =! visor[19]~output_o $end
+$var wire 1 >! visor[20]~output_o $end
+$var wire 1 ?! visor[21]~output_o $end
+$var wire 1 @! visor[22]~output_o $end
+$var wire 1 A! visor[23]~output_o $end
+$var wire 1 B! visor[24]~output_o $end
+$var wire 1 C! visor[25]~output_o $end
+$var wire 1 D! visor[26]~output_o $end
+$var wire 1 E! visor[27]~output_o $end
+$var wire 1 F! visor[28]~output_o $end
+$var wire 1 G! visor[29]~output_o $end
+$var wire 1 H! visor[30]~output_o $end
+$var wire 1 I! visor[31]~output_o $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+0#
+b0 $
+1+
+1*
+1)
+1(
+1'
+1&
+1%
+12
+11
+10
+1/
+1.
+1-
+1,
+19
+18
+17
+16
+15
+14
+13
+0Y
+0X
+0W
+0V
+0U
+0T
+0S
+0R
+0Q
+0P
+0O
+0N
+0M
+0L
+0K
+0J
+0I
+0H
+0G
+0F
+0E
+0D
+0C
+0B
+0A
+0@
+0?
+0>
+0=
+0<
+0;
+0:
+0Z
+1[
+x\
+1]
+1^
+1_
+0`
+0a
+0b
+0c
+0d
+0e
+0f
+0g
+0h
+0i
+0j
+0k
+0l
+0m
+0n
+0o
+0p
+0q
+0r
+1s
+1t
+1u
+1v
+1w
+1x
+1y
+1z
+1{
+1|
+1}
+1~
+1!!
+1"!
+1#!
+1$!
+1%!
+1&!
+1'!
+1(!
+1)!
+0*!
+0+!
+0,!
+0-!
+0.!
+0/!
+00!
+01!
+02!
+03!
+04!
+05!
+06!
+07!
+08!
+09!
+0:!
+0;!
+0<!
+0=!
+0>!
+0?!
+0@!
+0A!
+0B!
+0C!
+0D!
+0E!
+0F!
+0G!
+0H!
+0I!
+$end
+#10000
+1"
+1#
+1`
+1r
+#20000
+0#
+0r
+#30000
+1#
+1r
+#40000
+0"
+0#
+0`
+0r
+#50000
+1#
+1r
+#60000
+0#
+0r
+#70000
+1#
+1r
+#80000
+0#
+0r
+#90000
+1#
+1r
+#100000
+0#
+0r
+#110000
+1#
+1r
+#120000
+0#
+0r
+#130000
+1#
+1r
+#140000
+0#
+0r
+#150000
+1#
+1r
+#160000
+0#
+0r
+#170000
+1#
+1r
+#180000
+0#
+0r
+#190000
+1#
+1r
+#200000
+0#
+0r
+#210000
+1#
+1r
+#220000
+0#
+0r
+#230000
+1#
+1r
+#240000
+0#
+0r
+#250000
+1#
+1r
+#260000
+0#
+0r
+#270000
+1#
+1r
+#280000
+0#
+0r
+#290000
+1#
+1r
+#300000
+0#
+0r
+#310000
+1#
+1r
+#320000
+0#
+0r
+#330000
+1#
+1r
+#340000
+0#
+0r
+#350000
+1#
+1r
+#360000
+0#
+0r
+#370000
+1#
+1r
+#380000
+0#
+0r
+#390000
+1#
+1r
+#400000
+0#
+0r
+#410000
+1#
+1r
+#420000
+0#
+0r
+#430000
+1#
+1r
+#440000
+0#
+0r
+#450000
+1#
+1r
+#460000
+0#
+0r
+#470000
+1#
+1r
+#480000
+0#
+0r
+#490000
+1#
+1r
+#500000
+0#
+0r
+#510000
+1#
+1r
+#520000
+0#
+0r
+#530000
+1#
+1r
+#540000
+0#
+0r
+#550000
+1#
+1r
+#560000
+0#
+0r
+#570000
+1#
+1r
+#580000
+0#
+0r
+#590000
+1#
+1r
+#600000
+0#
+0r
+#610000
+1#
+1r
+#620000
+0#
+0r
+#630000
+1#
+1r
+#640000
+0#
+0r
+#650000
+1#
+1r
+#660000
+0#
+0r
+#670000
+1#
+1r
+#680000
+0#
+0r
+#690000
+1#
+1r
+#700000
+0#
+0r
+#710000
+1#
+1r
+#720000
+0#
+0r
+#730000
+1#
+1r
+#740000
+0#
+0r
+#750000
+1#
+1r
+#760000
+0#
+0r
+#770000
+1#
+1r
+#780000
+0#
+0r
+#790000
+1#
+1r
+#800000
+0#
+0r
+#810000
+1#
+1r
+#820000
+0#
+0r
+#830000
+1#
+1r
+#840000
+0#
+0r
+#850000
+1#
+1r
+#860000
+0#
+0r
+#870000
+1#
+1r
+#880000
+0#
+0r
+#890000
+1#
+1r
+#900000
+0#
+0r
+#910000
+1#
+1r
+#920000
+0#
+0r
+#930000
+1#
+1r
+#940000
+0#
+0r
+#950000
+1#
+1r
+#960000
+0#
+0r
+#970000
+1#
+1r
+#980000
+0#
+0r
+#990000
+1#
+1r
+#1000000
