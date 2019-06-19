@@ -1,10 +1,10 @@
-module CPMath(clk, btn_reset, switch, btn_enter, display0, display1, display2, visor);
-		//Entradas e Saidas do processador
+module CPMath(clk, btn_reset, switch, btn_enter, display2, display1, display0);
 		input btn_reset, btn_enter;
-		wire reset, enter;
+		input clk; 	//Clock 50Mhz
 		input [15:0] switch;
-		output [6:0] display0, display1, display2;
-		input clk;
+		output [6:0] display2, display1, display0;
+		wire reset, enter;
+		wire clk_div; //clock dividido
 		wire toDisplay;
 		wire [3:0] centena, dezena, unidade;
 		//Entradas e Saidas PC
@@ -35,32 +35,29 @@ module CPMath(clk, btn_reset, switch, btn_enter, display0, display1, display2, v
 		wire pcSrc, regSrc, memSrc;
 		wire [1:0] dataSrc;
 		
-		//teste
-		output [31:0]visor;
-		
 		//Entrada
-		wire [15:0] stdin;
+		wire [15:0] stdin; //entrada de dado dos switchs
 		
 		//Unidade de processamento
-		wire pcWrite, memRead, memWrite, irWrite, regWrite, aSrc, pcCond, displayWrite;
+		wire pcWrite, memRead, memWrite, irWrite, regWrite, aSrc, pcCond, displayWrite, haveData;
 		wire [1:0] ulaOp;
 		wire switchRead, switchWrite;
 		//Program Counter
-		PC programCounter(._input(pcIn), .output_(pcOut), .pcWrite(pcWrite || (pcCond & zero)), .reset(reset));
+		PC programCounter(._input(pcIn), .output_(pcOut),.clk(clk_div), .pcWrite(pcWrite || (pcCond && zero)), .reset(reset));
 		
 		//Mux para a Memoria
 		mux32 muxMem(._input0(pcOut), ._input1(aluOut), .sel(memSrc), .output_(adress));
 		
 		//Memoria principal
 		memory mem(.adress(adress), .data(memInput), .memOut(memOutput), .memRead(memRead),
-	.memWrite(memWrite), .reset(reset));
+	.memWrite(memWrite),.clk(clk_div), .reset(reset), .clk_50mhz(clk));
 		
 		//Instruction Register
-		IR inst(.inst(memOutput), .opcode(opcode), .rs(rs), .rt(rt), .imme(imme), .irWrite(irWrite));
+		IR inst(.inst(memOutput), .opcode(opcode), .rs(rs), .rt(rt), .imme(imme), .irWrite(irWrite), .clk(clk_div));
 		
 		//Banco de registradores
 		registers banco(.readReg1(rs), .readReg2(rt), .writeReg(writeReg), .writeData(writeData),
-.regA(inputA), .regB(inputB), .regWrite(regWrite), .clk(clk));
+.regA(inputA), .regB(inputB), .regWrite(regWrite), .clk(clk_div));
 		
 		//Registradores A e B
 		GPR A(._input(inputA), .output_(outputA));
@@ -70,7 +67,7 @@ module CPMath(clk, btn_reset, switch, btn_enter, display0, display1, display2, v
 		mux32 muxA(._input0(pcOut), ._input1(outputA), .sel(aSrc), .output_(aluA));
 		
 		//Mux para a entrada B da Ula
-		mux32B muxB(._input0(outputB), ._input1(25'd4), ._input2(immeExt), ._input3(immeExt4),
+		mux32B muxB(._input0(outputB), ._input1(32'd1), ._input2(immeExt), ._input3(immeExt4),
 .sel(bSrc), .output_(aluB));
 		
 		//Unidade Logica Aritmetica
@@ -83,14 +80,14 @@ module CPMath(clk, btn_reset, switch, btn_enter, display0, display1, display2, v
 		GPR MDR(._input(memOutput), .output_(mdrOut));
 		
 		//Mux para a entrada do PC
-		mux32B muxPC(._input0(result), ._input1(aluOut), ._input2({PC[31:28], adressJ[27:0]}),
-._input3({programCounter[31:28], adressJ[27:0]}), .sel(pcSrc), .output_(pcIn));
+		mux32B muxPC(._input0(result), ._input1(aluOut), ._input2({pcOut[31:28], adressJ[27:0]}),
+._input3({pcOut[31:28], adressJ[27:0]}), .sel(pcSrc), .output_(pcIn));
 		
 		//Extensor de sinal
 		signExtend se1(._input(imme), .output_(immeExt));
 		
 		//Shift esquerdo de 2 para o muxB
-		SL2 sl1(._input(imme), .output_(immeExt4));
+		SL2 sl1(._input(immeExt), .output_(immeExt4));
 		
 		//Shift esquerdo de 2 para o AdressJ
 		SL2 sl2(._input({{6{1'b0}}, rs, rs, imme}), .output_(adressJ));
@@ -103,35 +100,34 @@ module CPMath(clk, btn_reset, switch, btn_enter, display0, display1, display2, v
 		mux5 muxReg(._input0(rs), ._input1(imme[15:11]), .sel(regSrc), .output_(writeReg));
 		
 		//Unidade de controle
-		controlUnit control(.opcode(opcode), .clk(clk), .reset(reset), .pcCond(pcCond), .pcWrite(pcWrite), .pcSrc(pcSrc),
-		.memSrc(memSrc), .memWrite(memWrite), .memRead(memRead), .irWrite(irWrite), .regSrc(regSrc), .dataSrc(dataSrc),
-		.regWrite(regWrite), .aSrc(aSrc), .bSrc(bSrc), .ulaOp(ulaOp), .displayWrite(displayWrite));
+		controlUnit control(.opcode(opcode), .clk(clk_div), .reset(reset), .pcCond(pcCond),
+.pcWrite(pcWrite), .pcSrc(pcSrc), .memSrc(memSrc), .memWrite(memWrite), .memRead(memRead),
+.irWrite(irWrite), .regSrc(regSrc), .dataSrc(dataSrc), .regWrite(regWrite), .aSrc(aSrc),
+.bSrc(bSrc), .ulaOp(ulaOp), .displayWrite(displayWrite));
 		
 		//Controle da ula
-		controlULA control1(._input(imme[6:0]), .output_(aluOp), .ulaOp(ulaOp), .opcode(opcode));
+		controlULA control1(._input(imme[5:0]), .output_(aluOp), .ulaOp(ulaOp), .opcode(opcode));
 		
 		//Saida de dados
-		GPR display(._input(aluOut), .output_(toDisplay));
+		displayReg display(._input(aluOut), .output_(toDisplay), .clk(clk_div), .displayWrite(displayWrite), .reset(reset));
 		
 		//Encontrar digitos
-		binToBCD saida1(.number(toDisplay), .hundreds(centena), .tens(dezena), .ones(unidade));
+		binToBCD saida1(._input(toDisplay), .digito2(centena), .digito1(dezena), .digito0(unidade));
 
 		//Display
-		seteSegmentos digito2(._input(centena), .output_(display2), .displayWrite(displayWrite)); //Centena
-		seteSegmentos digito1(._input(dezena), .output_(display1), .displayWrite(displayWrite));  //Dezena
-		seteSegmentos digito0(._input(unidade), .output_(display0), .displayWrite(displayWrite));	//unidade
+		seteSegmentos digito2(._input(centena), .output_(display2), .displayWrite(displayWrite), .clk(clk)); //Centena
+		seteSegmentos digito1(._input(dezena), .output_(display1), .displayWrite(displayWrite), .clk(clk));  //Dezena
+		seteSegmentos digito0(._input(unidade), .output_(display0), .displayWrite(displayWrite), .clk(clk));	//unidade
 		
 		//Entrada de dados
-		Entrada Buffer(._input(switch), .output_(stdin), .switchRead(switchRead),  .switchWrite(enter), .reset(reset), .clk(clk), .haveData(haveData));
+		Entrada Buffer(._input(switch), .output_(stdin), .switchRead(switchRead),  .switchWrite(enter), .reset(reset), .clk(clk_div), .haveData(haveData));
 		
 		//Divisor de frequencia
-		//divisorClk divClk1(.clk_50mhz(clk_50mhz), .clk(clk), .reset(reset)); 
+		divisorClk divClk1(.clk_50mhz(clk), .clk(clk_div), .reset(reset)); 
 		
 		//Debounce reset
-		DeBounce btnReset(.clk(clk_50mhz), .n_reset(reset), .button_in(btn_reset), .DB_out(reset));
+		DeBounce btnReset(.clk(clk), .n_reset(1), .button_in(btn_reset), .DB_out(reset));
 		
 		//Debounce enter
-		DeBounce btnEnter(.clk(clk_50mhz), .n_reset(reset), .button_in(btn_enter), .DB_out(enter));
-		
-		assign visor = pcOut;
+		DeBounce btnEnter(.clk(clk), .n_reset(1), .button_in(btn_enter), .DB_out(enter));
 endmodule

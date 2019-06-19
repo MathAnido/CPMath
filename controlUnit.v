@@ -64,6 +64,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s1:
 				begin
@@ -81,6 +82,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s2:
 				begin
@@ -98,6 +100,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s3:
 				begin
@@ -115,6 +118,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s4:
 				begin
@@ -132,6 +136,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					pcCond = 1'b0;
 					memWrite = 1'b0;
 					regSrc = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s5:
 				begin
@@ -149,12 +154,13 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s6:
 				begin
 					aSrc = 1'b1;
 					bSrc = 2'b00;
-					ulaOp = 2'b10;
+					ulaOp = 2'b00;
 
 					memSrc = 1'b0;
 					memRead = 1'b0;
@@ -166,6 +172,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s7:
 				begin
@@ -183,6 +190,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					pcWrite = 1'b0;
 					pcCond = 1'b0;
 					memWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s8:
 				begin
@@ -200,6 +208,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
 			s9:
 				begin
@@ -217,12 +226,13 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
       s10:
 				begin
 					aSrc = 1'b1;
 					bSrc = 2'b10;
-					ulaOp = 2'b10;
+					ulaOp = 2'b11;
 
 					memSrc = 1'b0;
 					memRead = 1'b0;
@@ -234,6 +244,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 					regSrc = 1'b0;
 					dataSrc = 2'b00;
 					regWrite = 1'b0;
+					displayWrite = 1'b1;
 				end
       s11:
         begin
@@ -251,6 +262,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
           pcWrite = 1'b0;
           pcCond = 1'b0;
           memWrite = 1'b0;
+			 displayWrite = 1'b1;
         end
 		endcase
 	end

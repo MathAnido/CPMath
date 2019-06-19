@@ -4,7 +4,7 @@ module divisorClk(clk_50mhz, clk, reset);
 	output reg clk = 0;
 	reg [17:0] cont = 0;
 
-	always @(posedge clk_50mhz or posedge reset) begin
+	always @(posedge clk_50mhz) begin
 		 if (reset) begin
 			  cont <= 0;
 			  clk <= 0;
