@@ -47,7 +47,7 @@ module controlUnit(opcode, clk, reset, pcCond, pcWrite, pcSrc, memSrc, memWrite,
 				default: estado <= s0;
 			endcase
 	end
-	always @ (estado) begin
+	always @ (*) begin
 		case(estado)
 			s0:
 				begin

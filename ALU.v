@@ -4,7 +4,7 @@ module ALU (regA, regB, zero, result, aluOp);
 	input [5:0] aluOp;									//Operação
 	output reg [31:0] result;							//Resultado da operação
 	output zero;
-	always @ (aluOp or regA or regB) begin
+	always @ (*) begin
 		case(aluOp[5:0])								
 			6'b000000: result = regA + regB; 			//add
 			6'b000001: result = regA && regB; 			//and

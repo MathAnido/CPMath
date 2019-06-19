@@ -1,7 +1,8 @@
-module signExtend(_input, output_);
+module signExtend(_input, output_, clk);
 	input [15:0] _input;						//Entrada
 	output reg [31:0] output_;					//Saida
-	always @ (_input) begin	
+	input clk;
+	always @ (posedge clk) begin	
 		if(_input[15])							//Verificar o primeiro bit
 			output_ = {{16{1'b1}}, _input};		//Caso o primeiro bit seja 1
 		else

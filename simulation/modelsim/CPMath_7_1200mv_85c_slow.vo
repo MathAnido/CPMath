@@ -1,4 +1,4 @@
-// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
 // Your use of Intel Corporation's design tools, logic functions 
 // and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
@@ -14,9 +14,9 @@
 
 // VENDOR "Altera"
 // PROGRAM "Quartus Prime"
-// VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition"
+// VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
-// DATE "06/18/2019 22:50:55"
+// DATE "06/19/2019 00:58:15"
 
 // 
 // Device: Altera EP4CE115F29C7 Package FBGA780
@@ -78,7 +78,7 @@ output 	[6:0] display0;
 // display1[6]	=>  Location: PIN_U24,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // display0[0]	=>  Location: PIN_G18,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // display0[1]	=>  Location: PIN_F22,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// display0[2]	=>  Location: PIN_E27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// display0[2]	=>  Location: PIN_E17,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // display0[3]	=>  Location: PIN_L26,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // display0[4]	=>  Location: PIN_L25,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // display0[5]	=>  Location: PIN_J22,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -357,7 +357,7 @@ defparam \display0[1]~output .bus_hold = "false";
 defparam \display0[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X115_Y57_N16
+// Location: IOOBUF_X67_Y73_N23
 cycloneive_io_obuf \display0[2]~output (
 	.i(gnd),
 	.oe(vcc),

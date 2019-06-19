@@ -9,20 +9,20 @@ module Entrada(_input, output_, switchRead, switchWrite, reset, clk, haveData);
 	reg [31:0] ram[31:0];
 	always @ (posedge clk) begin  //Leitura da entrada
 		if(reset) begin
-			index = 0;
+			index <= 0;
 		end
 		else if(switchRead) begin
-			index = index + 4'd1;
-			output_ = 32'd0;
-			ram[index] = _input;
+			index <= index + 4'd1;
+			output_ <= 32'd0;
+			ram[index] <= _input;
 		end
 		else if(switchWrite) begin
-			output_ = ram[index];	
-			index = index - 4'd1;
+			output_ <= ram[index];	
+			index <= index - 4'd1;
 		end
 		else if(reset) begin
-			index = 4'd0;
-			output_ = 32'd0;
+			index <= 4'd0;
+			output_ <= 32'd0;
 		end
 	end
 	assign haveData = index > 0;

@@ -1,10 +1,11 @@
 module CPMath(clk, btn_reset, switch, btn_enter, display2, display1, display0);
 		input btn_reset, btn_enter;
 		input clk; 	//Clock 50Mhz
+		reg [17:0] cont = 0;
 		input [15:0] switch;
 		output [6:0] display2, display1, display0;
 		wire reset, enter;
-		wire clk_div; //clock dividido
+		reg clk_div; //clock dividido
 		wire toDisplay;
 		wire [3:0] centena, dezena, unidade;
 		//Entradas e Saidas PC
@@ -46,7 +47,7 @@ module CPMath(clk, btn_reset, switch, btn_enter, display2, display1, display0);
 		PC programCounter(._input(pcIn), .output_(pcOut),.clk(clk_div), .pcWrite(pcWrite || (pcCond && zero)), .reset(reset));
 		
 		//Mux para a Memoria
-		mux32 muxMem(._input0(pcOut), ._input1(aluOut), .sel(memSrc), .output_(adress));
+		mux32 muxMem(._input0(pcOut), ._input1(aluOut), .sel(memSrc), .output_(adress), .clk(clk_div));
 		
 		//Memoria principal
 		memory mem(.adress(adress), .data(memInput), .memOut(memOutput), .memRead(memRead),
@@ -60,44 +61,44 @@ module CPMath(clk, btn_reset, switch, btn_enter, display2, display1, display0);
 .regA(inputA), .regB(inputB), .regWrite(regWrite), .clk(clk_div));
 		
 		//Registradores A e B
-		GPR A(._input(inputA), .output_(outputA));
-		GPR B(._input(inputB), .output_(outputB));
+		GPR A(._input(inputA), .output_(outputA), .clk(clk_div));
+		GPR B(._input(inputB), .output_(outputB), .clk(clk_div));
 		
 		//Mux para entrada A da Ula
-		mux32 muxA(._input0(pcOut), ._input1(outputA), .sel(aSrc), .output_(aluA));
+		mux32 muxA(._input0(pcOut), ._input1(outputA), .sel(aSrc), .output_(aluA), .clk(clk_div));
 		
 		//Mux para a entrada B da Ula
 		mux32B muxB(._input0(outputB), ._input1(32'd1), ._input2(immeExt), ._input3(immeExt4),
-.sel(bSrc), .output_(aluB));
+.sel(bSrc), .output_(aluB), .clk(clk_div));
 		
 		//Unidade Logica Aritmetica
 		ALU ula(.regA(aluA), .regB(aluB), .zero(zero), .result(result), .aluOp(aluOp));
 		
 		//Registrador UlaOut
-		GPR ulaOut(._input(result), .output_(aluOut));
+		GPR ulaOut(._input(result), .output_(aluOut), .clk(clk_div));
 		
 		//Registrador MDR
-		GPR MDR(._input(memOutput), .output_(mdrOut));
+		GPR MDR(._input(memOutput), .output_(mdrOut), .clk(clk_div));
 		
 		//Mux para a entrada do PC
 		mux32B muxPC(._input0(result), ._input1(aluOut), ._input2({pcOut[31:28], adressJ[27:0]}),
-._input3({pcOut[31:28], adressJ[27:0]}), .sel(pcSrc), .output_(pcIn));
+._input3({pcOut[31:28], adressJ[27:0]}), .sel(pcSrc), .output_(pcIn), .clk(clk_div));
 		
 		//Extensor de sinal
-		signExtend se1(._input(imme), .output_(immeExt));
+		signExtend se1(._input(imme), .output_(immeExt), .clk(clk_div));
 		
 		//Shift esquerdo de 2 para o muxB
-		SL2 sl1(._input(immeExt), .output_(immeExt4));
+		SL2 sl1(._input(immeExt), .output_(immeExt4), .clk(clk_div));
 		
 		//Shift esquerdo de 2 para o AdressJ
-		SL2 sl2(._input({{6{1'b0}}, rs, rs, imme}), .output_(adressJ));
+		SL2 sl2(._input({{6{1'b0}}, rs, rs, imme}), .output_(adressJ), .clk(clk_div));
 		
 		//Mux para o dados a ser escrito no banco de registradores
 		mux32B muxData(._input0(mdrOut), ._input1(aluOut), ._input2(stdin), ._input3(stdin), 
-.sel(dataSrc), .output_(writeData));
+.sel(dataSrc), .output_(writeData), .clk(clk_div));
 		
 		//Mux para o registrador a ser escrito do banco de registradores
-		mux5 muxReg(._input0(rs), ._input1(imme[15:11]), .sel(regSrc), .output_(writeReg));
+		mux5 muxReg(._input0(rs), ._input1(imme[15:11]), .sel(regSrc), .output_(writeReg), .clk(clk_div));
 		
 		//Unidade de controle
 		controlUnit control(.opcode(opcode), .clk(clk_div), .reset(reset), .pcCond(pcCond),
@@ -123,11 +124,25 @@ module CPMath(clk, btn_reset, switch, btn_enter, display2, display1, display0);
 		Entrada Buffer(._input(switch), .output_(stdin), .switchRead(switchRead),  .switchWrite(enter), .reset(reset), .clk(clk_div), .haveData(haveData));
 		
 		//Divisor de frequencia
-		divisorClk divClk1(.clk_50mhz(clk), .clk(clk_div), .reset(reset)); 
+		//divisorClk divClk1(.clk_50mhz(clk), .clk(clk_div), .reset(reset)); 
 		
 		//Debounce reset
 		DeBounce btnReset(.clk(clk), .n_reset(1), .button_in(btn_reset), .DB_out(reset));
 		
 		//Debounce enter
 		DeBounce btnEnter(.clk(clk), .n_reset(1), .button_in(btn_enter), .DB_out(enter));
+		
+		always @(posedge clk) begin
+			 if (reset) begin
+				  cont <= 0;
+				  clk_div <= 0;
+			 end else begin
+				  if (cont < 249999) begin
+						cont <= cont + 18'd1;
+				  end else begin
+						cont <= 0;
+						clk_div <= ~clk_div;
+				  end
+			 end
+		end
 endmodule

@@ -8,10 +8,10 @@ module IR(inst, opcode, rs, rt, imme, irWrite, clk);
 	input irWrite;						//bit de controle da escrita
 	always @ (posedge clk) begin
 		if(irWrite) begin
-			opcode = inst[31:26];			//Separação da instrução
-			rs = inst[25:21];				//Nos respectivos campos
-			rt = inst[20:16];
-			imme = inst[15:0];
+			opcode <= inst[31:26];			//Separação da instrução
+			rs <= inst[25:21];				//Nos respectivos campos
+			rt <= inst[20:16];
+			imme <= inst[15:0];
 		end
 	end
 endmodule

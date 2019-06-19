@@ -10,7 +10,7 @@ module registers(readReg1, readReg2, writeReg, writeData, regA, regB, regWrite, 
 	reg [31:0] register [31:0];				//Registradores
 	always @ (posedge clk) begin
 		if(writeReg)
-			register[writeReg] = writeData;		//Escrita dos dados no registrador
+			register[writeReg] <= writeData;		//Escrita dos dados no registrador
 	end
 	assign regA = register[readReg1];		//Leitura do primeiro registrador
 	assign regB = register[readReg2];		//Leitura do segundo registrador
