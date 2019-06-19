@@ -5,10 +5,9 @@ module displayReg(_input, output_, clk, displayWrite, reset);
 	input clk; 							//Clock
 	input reset;
 	always @(posedge clk) begin
-		if(displayWrite) begin
+		if(displayWrite)
 			output_ <= _input;				//Atribuição do valor de saida
-		end
-		else if(reset)
+		if(reset)
 			output_ <= 31'd0;
 	end
 endmodule

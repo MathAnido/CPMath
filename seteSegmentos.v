@@ -1,8 +1,9 @@
-module seteSegmentos (_input, output_, displayWrite, clk) ;
+module seteSegmentos (_input, output_, displayWrite, clk, reset) ;
 	input [3:0] _input;
 	output reg [6:0] output_;
 	input displayWrite;
 	input clk;
+	input reset;
 	always@(posedge clk)begin
 		if(displayWrite) begin
 			case (_input)
@@ -16,8 +17,9 @@ module seteSegmentos (_input, output_, displayWrite, clk) ;
 				4'b0111 : output_ <= 7'b1111000;
 				4'b1000 : output_ <= 7'b0000000;
 				4'b1001 : output_ <= 7'b0011000;
-				default : output_ <= 7'b1000000;
 			endcase
 		end
+		if(reset)
+			output_ <= 7'b1111111;
 	end
 endmodule 

@@ -8,6 +8,6 @@ module PC(_input, output_, clk, pcWrite, reset);
 		if(pcWrite)
 			output_ <= _input;				//Atribuição do valor de saida
 		if(reset)
-			output_ <= 32'd107;
+			output_ <= 32'd0;
 	end
 endmodule

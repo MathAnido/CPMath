@@ -1,4 +1,4 @@
-// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
 // Your use of Intel Corporation's design tools, logic functions 
 // and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
@@ -14,9 +14,9 @@
 
 // VENDOR "Altera"
 // PROGRAM "Quartus Prime"
-// VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
+// VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition"
 
-// DATE "06/19/2019 00:58:15"
+// DATE "06/19/2019 18:51:49"
 
 // 
 // Device: Altera EP4CE115F29C7 Package FBGA780
@@ -30,14 +30,14 @@
 
 module CPMath (
 	clk,
-	btn_reset,
+	reset,
 	switch,
 	btn_enter,
 	display2,
 	display1,
 	display0);
 input 	clk;
-input 	btn_reset;
+input 	reset;
 input 	[15:0] switch;
 input 	btn_enter;
 output 	[6:0] display2;
@@ -83,8 +83,8 @@ output 	[6:0] display0;
 // display0[4]	=>  Location: PIN_L25,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // display0[5]	=>  Location: PIN_J22,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // display0[6]	=>  Location: PIN_H22,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// clk	=>  Location: PIN_Y2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// btn_reset	=>  Location: PIN_R24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset	=>  Location: PIN_D19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_Y23,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -119,8 +119,8 @@ wire \switch[13]~input_o ;
 wire \switch[14]~input_o ;
 wire \switch[15]~input_o ;
 wire \btn_enter~input_o ;
+wire \reset~input_o ;
 wire \clk~input_o ;
-wire \btn_reset~input_o ;
 wire \display2[0]~output_o ;
 wire \display2[1]~output_o ;
 wire \display2[2]~output_o ;
@@ -151,7 +151,7 @@ hard_block auto_generated_inst(
 
 // Location: IOOBUF_X115_Y17_N9
 cycloneive_io_obuf \display2[0]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -164,7 +164,7 @@ defparam \display2[0]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y16_N2
 cycloneive_io_obuf \display2[1]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -177,7 +177,7 @@ defparam \display2[1]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y19_N9
 cycloneive_io_obuf \display2[2]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -190,7 +190,7 @@ defparam \display2[2]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y19_N2
 cycloneive_io_obuf \display2[3]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -203,7 +203,7 @@ defparam \display2[3]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y18_N2
 cycloneive_io_obuf \display2[4]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -216,7 +216,7 @@ defparam \display2[4]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y20_N2
 cycloneive_io_obuf \display2[5]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -242,7 +242,7 @@ defparam \display2[6]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y41_N2
 cycloneive_io_obuf \display1[0]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -255,7 +255,7 @@ defparam \display1[0]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y30_N9
 cycloneive_io_obuf \display1[1]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -268,7 +268,7 @@ defparam \display1[1]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y25_N23
 cycloneive_io_obuf \display1[2]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -281,7 +281,7 @@ defparam \display1[2]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y30_N2
 cycloneive_io_obuf \display1[3]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -294,7 +294,7 @@ defparam \display1[3]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y20_N9
 cycloneive_io_obuf \display1[4]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -307,7 +307,7 @@ defparam \display1[4]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y22_N2
 cycloneive_io_obuf \display1[5]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -333,7 +333,7 @@ defparam \display1[6]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X69_Y73_N23
 cycloneive_io_obuf \display0[0]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -346,7 +346,7 @@ defparam \display0[0]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X107_Y73_N23
 cycloneive_io_obuf \display0[1]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -359,7 +359,7 @@ defparam \display0[1]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X67_Y73_N23
 cycloneive_io_obuf \display0[2]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -372,7 +372,7 @@ defparam \display0[2]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y50_N2
 cycloneive_io_obuf \display0[3]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -385,7 +385,7 @@ defparam \display0[3]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y54_N16
 cycloneive_io_obuf \display0[4]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -398,7 +398,7 @@ defparam \display0[4]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X115_Y67_N16
 cycloneive_io_obuf \display0[5]~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -592,7 +592,17 @@ defparam \btn_enter~input .bus_hold = "false";
 defparam \btn_enter~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y36_N15
+// Location: IOIBUF_X83_Y73_N15
+cycloneive_io_ibuf \reset~input (
+	.i(reset),
+	.ibar(gnd),
+	.o(\reset~input_o ));
+// synopsys translate_off
+defparam \reset~input .bus_hold = "false";
+defparam \reset~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y14_N8
 cycloneive_io_ibuf \clk~input (
 	.i(clk),
 	.ibar(gnd),
@@ -600,16 +610,6 @@ cycloneive_io_ibuf \clk~input (
 // synopsys translate_off
 defparam \clk~input .bus_hold = "false";
 defparam \clk~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y35_N22
-cycloneive_io_ibuf \btn_reset~input (
-	.i(btn_reset),
-	.ibar(gnd),
-	.o(\btn_reset~input_o ));
-// synopsys translate_off
-defparam \btn_reset~input .bus_hold = "false";
-defparam \btn_reset~input .simulate_z_as = "z";
 // synopsys translate_on
 
 assign display2[0] = \display2[0]~output_o ;
