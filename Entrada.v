@@ -8,9 +8,8 @@ module Entrada(_input, output_, switchRead, switchWrite, reset, clk, haveData);
 	reg[3:0] index;
 	reg [31:0] ram[31:0];
 	always @ (posedge clk) begin  //Leitura da entrada
-		if(reset) begin
+		if(reset)
 			index <= 0;
-		end
 		else if(switchRead) begin
 			index <= index + 4'd1;
 			output_ <= 32'd0;

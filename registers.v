@@ -12,6 +12,6 @@ module registers(readReg1, readReg2, writeReg, writeData, regA, regB, regWrite, 
 		if(writeReg)
 			register[writeReg] <= writeData;		//Escrita dos dados no registrador
 	end
-	assign regA = register[readReg1];		//Leitura do primeiro registrador
-	assign regB = register[readReg2];		//Leitura do segundo registrador
+	assign regA = (readReg1 != 0)? register[readReg1]: 0;		//Leitura do primeiro registrador
+	assign regB = (readReg2 != 0)? register[readReg2]: 0;		//Leitura do segundo registrador
 endmodule

@@ -1,134 +1,74 @@
 Determining the location of the ModelSim executable...
 
-Using: e:/intelfpga_lite/18.1/modelsim_ase/win32aloem/
+Using: /opt/intelFPGA/17.1/modelsim_ase/linuxaloem
 
 To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
 Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-Altera will be used.
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off CPMath -c CPMath --vector_source="C:/Users/mathe/Desktop/cpmath/Waveform1.vwf" --testbench_file="C:/Users/mathe/Desktop/cpmath/simulation/qsim/Waveform1.vwf.vt"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off CPMath -c CPMath --vector_source="/home-local/aluno/CPMath/Waveform4.vwf" --testbench_file="/home-local/aluno/CPMath/simulation/qsim/Waveform4.vwf.vt"
 
-Info: *******************************************************************
-Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Copyright (C) 2018  Intel Corporation. All rights reserved.
-    Info: Your use of Intel Corporation's design tools, logic functions 
-    Info: and other software and tools, and its AMPP partner logic 
-    Info: functions, and any output files from any of the foregoing 
-    Info: (including device programming or simulation files), and any 
-    Info: associated documentation or information are expressly subject 
-    Info: to the terms and conditions of the Intel Program License 
-    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
-    Info: the Intel FPGA IP License Agreement, or other applicable license
-    Info: agreement, including, without limitation, that your use is for
-    Info: the sole purpose of programming logic devices manufactured by
-    Info: Intel and sold by Intel or its authorized distributors.  Please
-    Info: refer to the applicable agreement for further details.
-    Info: Processing started: Sun Jun 16 23:56:51 2019
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off CPMath -c CPMath --vector_source=C:/Users/mathe/Desktop/cpmath/Waveform1.vwf --testbench_file=C:/Users/mathe/Desktop/cpmath/simulation/qsim/Waveform1.vwf.vt
-Info (119004): Automatically selected device EP4CE6F17C6 for design CPMath
-Info (119005): Fitting design with smaller device may be possible, but smaller device must be specified
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-
+Info: *******************************************************************Info: Running Quartus Prime EDA Netlist Writer    Info: Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.    Info: Your use of Intel Corporation's design tools, logic functions     Info: and other software and tools, and its AMPP partner logic     Info: functions, and any output files from any of the foregoing     Info: (including device programming or simulation files), and any     Info: associated documentation or information are expressly subject     Info: to the terms and conditions of the Intel Program License     Info: Subscription Agreement, the Intel Quartus Prime License Agreement,    Info: the Intel FPGA IP License Agreement, or other applicable license    Info: agreement, including, without limitation, that your use is for    Info: the sole purpose of programming logic devices manufactured by    Info: Intel and sold by Intel or its authorized distributors.  Please    Info: refer to the applicable agreement for further details.    Info: Processing started: Sat Jun 22 19:51:21 2019Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off CPMath -c CPMath --vector_source=/home-local/aluno/CPMath/Waveform4.vwf --testbench_file=/home-local/aluno/CPMath/simulation/qsim/Waveform4.vwf.vtWarning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+files
+writing test bench files
+g test bench files
 Completed successfully. 
 
 Completed successfully. 
 
 **** Generating the functional simulation netlist ****
 
-quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/mathe/Desktop/cpmath/simulation/qsim/" CPMath -c CPMath
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="/home-local/aluno/CPMath/simulation/qsim/" CPMath -c CPMath
 
-Info: *******************************************************************
-Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Copyright (C) 2018  Intel Corporation. All rights reserved.
-    Info: Your use of Intel Corporation's design tools, logic functions 
-    Info: and other software and tools, and its AMPP partner logic 
-    Info: functions, and any output files from any of the foregoing 
-    Info: (including device programming or simulation files), and any 
-    Info: associated documentation or information are expressly subject 
-    Info: to the terms and conditions of the Intel Program License 
-    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
-    Info: the Intel FPGA IP License Agreement, or other applicable license
-    Info: agreement, including, without limitation, that your use is for
-    Info: the sole purpose of programming logic devices manufactured by
-    Info: Intel and sold by Intel or its authorized distributors.  Please
-    Info: refer to the applicable agreement for further details.
-    Info: Processing started: Sun Jun 16 23:56:52 2019
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=C:/Users/mathe/Desktop/cpmath/simulation/qsim/ CPMath -c CPMath
-Info (119004): Automatically selected device EP4CE6F17C6 for design CPMath
-Info (119005): Fitting design with smaller device may be possible, but smaller device must be specified
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file CPMath.vo in folder "C:/Users/mathe/Desktop/cpmath/simulation/qsim//" for EDA simulation tool
-Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4646 megabytes
-    Info: Processing ended: Sun Jun 16 23:56:53 2019
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
-
+Info: *******************************************************************Info: Running Quartus Prime EDA Netlist Writer    Info: Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.    Info: Your use of Intel Corporation's design tools, logic functions     Info: and other software and tools, and its AMPP partner logic     Info: functions, and any output files from any of the foregoing     Info: (including device programming or simulation files), and any     Info: associated documentation or information are expressly subject     Info: to the terms and conditions of the Intel Program License     Info: Subscription Agreement, the Intel Quartus Prime License Agreement,    Info: the Intel FPGA IP License Agreement, or other applicable license    Info: agreement, including, without limitation, that your use is for    Info: the sole purpose of programming logic devices manufactured by    Info: Intel and sold by Intel or its authorized distributors.  Please    Info: refer to the applicable agreement for further details.    Info: Processing started: Sat Jun 22 19:51:23 2019Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home-local/aluno/CPMath/simulation/qsim/ CPMath -c CPMathWarning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.Info (204019): Generated file CPMath.vo in folder "/home-local/aluno/CPMath/simulation/qsim//" for EDA simulation toolInfo: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning    Info: Peak virtual memory: 1105 megabytes    Info: Processing ended: Sat Jun 22 19:51:27 2019    Info: Elapsed time: 00:00:04    Info: Total CPU time (on all processors): 00:00:04
 Completed successfully. 
 
 **** Generating the ModelSim .do script ****
 
-C:/Users/mathe/Desktop/cpmath/simulation/qsim/CPMath.do generated.
+/home-local/aluno/CPMath/simulation/qsim/CPMath.do generated.
 
 Completed successfully. 
 
 **** Running the ModelSim simulation ****
 
-e:/intelfpga_lite/18.1/modelsim_ase/win32aloem//vsim -c -do CPMath.do
+/opt/intelFPGA/17.1/modelsim_ase/linuxaloem/vsim -c -do CPMath.do
 
-Reading E:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
-
+Reading pref.tcl
 # 10.5b
-
-
 # do CPMath.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:56:53 on Jun 16,2019
-# vlog -work work CPMath.vo 
+# Start time: 19:51:28 on Jun 22,2019# vlog -work work CPMath.vo 
 # -- Compiling module CPMath
-
+# -- Compiling module hard_block
 # 
-# Top level modules:
-# 	CPMath
-# End time: 23:56:53 on Jun 16,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
+# Top level modules:# 	CPMath# End time: 19:51:30 on Jun 22,2019, Elapsed time: 0:00:02# Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:56:53 on Jun 16,2019
-# vlog -work work Waveform1.vwf.vt 
+# Start time: 19:51:30 on Jun 22,2019# vlog -work work Waveform4.vwf.vt 
 # -- Compiling module CPMath_vlg_vec_tst
 # 
-# Top level modules:
-# 	CPMath_vlg_vec_tst
-# End time: 23:56:53 on Jun 16,2019, Elapsed time: 0:00:00
+# Top level modules:# 	CPMath_vlg_vec_tst
+# End time: 19:51:30 on Jun 22,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-
-# vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.CPMath_vlg_vec_tst 
-# Start time: 23:56:54 on Jun 16,2019
-# Loading work.CPMath_vlg_vec_tst
-# Loading work.CPMath
-# Loading cycloneive_ver.cycloneive_io_obuf
-# Loading cycloneive_ver.cycloneive_io_ibuf
-# after#25
-# ** Note: $finish    : Waveform1.vwf.vt(56)
-#    Time: 1 us  Iteration: 0  Instance: /CPMath_vlg_vec_tst
-# End time: 23:56:54 on Jun 16,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-
+# vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.CPMath_vlg_vec_tst # Start time: 19:51:30 on Jun 22,2019# Loading work.CPMath_vlg_vec_tst# Loading work.CPMath# Loading work.hard_block# Loading cycloneive_ver.cycloneive_io_obuf# Loading cycloneive_ver.cycloneive_io_ibuf# Loading cycloneive_ver.cycloneive_lcell_comb# Loading altera_ver.dffeas# Loading cycloneive_ver.cycloneive_ram_block# Loading cycloneive_ver.cycloneive_ram_register# Loading cycloneive_ver.cycloneive_ram_pulse_generator# Loading cycloneive_ver.cycloneive_mac_mult# Loading cycloneive_ver.cycloneive_mac_data_reg# Loading cycloneive_ver.cycloneive_mac_sign_reg# Loading cycloneive_ver.cycloneive_mac_mult_internal# Loading cycloneive_ver.cycloneive_mac_out# Loading altera_ver.PRIM_GDFF_LOW# ** Warning: Design size of 40298 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.# Expect performance to be adversely affected.
+# after#26
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Simulation time: 0 ps
+# Simulation time: 0 ps
+# ** Note: $finish    : Waveform4.vwf.vt(64)#    Time: 1 us  Iteration: 0  Instance: /CPMath_vlg_vec_tst
+# End time: 19:51:38 on Jun 22,2019, Elapsed time: 0:00:08# Errors: 0, Warnings: 2
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/Users/mathe/Desktop/cpmath/Waveform1.vwf...
+Reading /home-local/aluno/CPMath/Waveform4.vwf...
 
-Reading C:/Users/mathe/Desktop/cpmath/simulation/qsim/CPMath.msim.vcd...
+Reading /home-local/aluno/CPMath/simulation/qsim/CPMath.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Users/mathe/Desktop/cpmath/simulation/qsim/CPMath_20190616235654.sim.vwf
+Writing the resulting VWF to /home-local/aluno/CPMath/simulation/qsim/CPMath_20190622195138.sim.vwf
 
 Finished VCD to VWF conversion.
 

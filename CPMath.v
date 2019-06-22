@@ -1,142 +1,176 @@
-module CPMath(clk, reset, switch, btn_enter, display2, display1, display0);
-		input btn_enter, reset;
-		input clk; 	//Clock 50Mhz
-		reg [18:0] cont = 0;
+module CPMath(clk, reset, switch, btn_enter, display2, display1, display0, pcAtual, resultado, estado, opcode, instru);
+		input clk;
+		input reset;
 		input [15:0] switch;
+		input btn_enter;
+		output [31:0] pcAtual, resultado;
+		output [3:0] estado;
+		wire [3:0] estadoCU;
+		output [5:0] opcode;
+		output [31:0] instru;
 		output [6:0] display2, display1, display0;
-		wire enter;
-		reg clk_div; //clock dividido
-		wire toDisplay;
-		wire [3:0] centena, dezena, unidade;
-		//Entradas e Saidas PC
-		wire [31:0] pcIn, pcOut;
+		//Registradores
+		reg [31:0] PC, MDR, A, B, aluOut, IR, result;
+		reg [5:0] aluOp;
+		//Memorias
+		reg [31:0] memoria[255:0];
+		reg [31:0] registradores[31:0];		
+		//Ula
+		wire [31:0] regA;
+		reg [31:0] regB;
+		//Unidade de Controle
+		wire pcWrite; //Sinal de escrita do PC
+		wire regWrite; //Sinal de escrita nos registradores
+		wire memRead; //Sinal de leitura da memoria
+		wire memWrite; //Sinal de escrita da memoria
+		wire irWrite; //Sinal de escrita do IR
+		wire aSrc; //Sinal de selecao da entrada A da ula
+		wire pcCond; //Sinal de instrucao condicional
+		wire displayWrite; //Sinal para escrita no display
+		wire haveData; 
+		wire [1:0] pcSrc; //Sinal de selecao do novo PC
+		wire memSrc;//Sinal de selecao do endereco de memoria
+		wire regSrc; //sinal de selecao do registrador escrito
+		wire [1:0] dataSrc; //Sinal de selecao do dado a ser escrito no registrador
+		wire [1:0]bSrc; //Sinal de selecao da entrada B da ula
+		//Wires
+		reg [31:0] saidaMemoria;
+		wire [31:0] adress;
 		
-		//Entradas e Saidas Memoria
-		wire [31:0] adress, memOutput, memInput;
-		
-		//Entradas e Saidas IR
-		wire [4:0] opcode, rs, rt;
-		wire [15:0] imme;
-		
-		//Entradas e Saidas banco de registradores
-		wire [5:0] writeReg, writeData;
-		
-		//Entradas e Saidas registradores A e B
-		wire [31:0] inputA, inputB, outputA, outputB;
-		
-		//Entradas e Saidas Alu
-		wire [31:0] aluA, aluB, result;
-		wire zero;
-		wire [5:0] aluOp;
-		
-		//Entradas e Saidas AluOut
-		wire [31:0] aluOut;
-		wire [31:0] immeExt, immeExt4, mdrOut, adressJ;
-		wire [1:0] bSrc;
-		wire pcSrc, regSrc, memSrc;
-		wire [1:0] dataSrc;
-		
-		//Entrada
-		wire [15:0] stdin; //entrada de dado dos switchs
-		
-		//Unidade de processamento
-		wire pcWrite, memRead, memWrite, irWrite, regWrite, aSrc, pcCond, displayWrite, haveData;
 		wire [1:0] ulaOp;
 		wire switchRead, switchWrite;
-		//Program Counter
-		PC programCounter(._input(pcIn), .output_(pcOut),.clk(clk_div), .pcWrite(pcWrite || (pcCond && zero)), .reset(reset));
+		//Bloco da execucao do PC
+		always @(posedge clk) begin
+			if(reset)
+				PC <= 32'b0;
+			else if(pcWrite)												//Sinal de controle de escrita do PC
+				case(pcSrc)													//Seleciona o novo PC
+					2'b00: PC <= result;									//PC + 1
+					2'b01: PC <= aluOut;									//Endereco B
+					2'b10: PC <= {PC[31:26], IR[25:0]};	//Endereco J
+					default: PC <= result; 								
+				endcase
+		end
 		
-		//Mux para a Memoria
-		mux32 muxMem(._input0(pcOut), ._input1(aluOut), .sel(memSrc), .output_(adress), .clk(clk_div));
+		//Bloco da execucao da memoria
+		assign adress = (memSrc)? PC : aluOut;
+		always @(posedge clk) begin
+			if(reset) begin
+				memoria[0] <= {6'b111111, 26'd107}; //jump to main
+				memoria[105] <= 32'd5;//valores do programa
+				memoria[106] <= 32'd4;//valores do programa
+				memoria[107] <= {6'b001000, 5'b00000, 5'b00010, 16'd105}; //lw
+				memoria[108] <= {6'b001000, 5'b00000, 5'b00011, 16'd106}; //lw
+				memoria[109] <= {6'b000000, 5'b00010, 5'b00011, 5'b00100, 5'b00000, 6'b000000};	//add
+				memoria[110] <= {6'b101000, 5'b00100, 5'b00100, 16'd0};
+				memoria[111] <= {6'b111111, 26'd107};
+			end
+			else if(memWrite)
+				memoria[adress] <= B;										//Escrita da memoria
+		end
+		always @(posedge clk) begin
+			saidaMemoria <= (memRead)? memoria[adress]: 32'bx; //Leitura da memoria
+		end
 		
-		//Memoria principal
-		memory mem(.adress(adress), .data(memInput), .memOut(memOutput), .memRead(memRead),
-	.memWrite(memWrite),.clk(clk_div), .reset(reset), .clk_50mhz(clk));
+		//Bloco da execucao do IR
+		always @(posedge clk) begin
+			if(irWrite) begin
+				IR <= saidaMemoria;
+			end
+		end
 		
-		//Instruction Register
-		IR inst(.inst(memOutput), .opcode(opcode), .rs(rs), .rt(rt), .imme(imme), .irWrite(irWrite), .clk(clk_div));
+		//Bloco do MDR
+		always @(posedge clk) begin
+			MDR <= saidaMemoria;												//Escrita do MDR
+		end
 		
-		//Banco de registradores
-		registers banco(.readReg1(rs), .readReg2(rt), .writeReg(writeReg), .writeData(writeData),
-.regA(inputA), .regB(inputB), .regWrite(regWrite), .clk(clk_div));
+		//Bloco dos registradores
+		always @(posedge clk) begin
+			if(regWrite)
+				case({regSrc, dataSrc})
+					3'b000: registradores[IR[20:16]] <= MDR;
+					3'b001: registradores[IR[20:16]] <= aluOut;
+					3'b010, 3'b011: registradores[IR[20:16]] <= switch; 
+					3'b100: registradores[IR[15:11]] <= MDR;
+					3'b101: registradores[IR[15:11]] <= aluOut;
+					3'b110, 3'b111: registradores[IR[15:11]] <= switch;
+				endcase
+		end
 		
-		//Registradores A e B
-		GPR A(._input(inputA), .output_(outputA), .clk(clk_div), .reset(reset));
-		GPR B(._input(inputB), .output_(outputB), .clk(clk_div), .reset(reset));
+		//A e B
+		always @(posedge clk) begin
+			A <= (IR[25:21]!= 0)? registradores[IR[25:21]]: 0; //Verificar se eh o registrador 0
+			B <= (IR[20:16]!= 0)? registradores[IR[20:16]]: 0;
+		end
 		
-		//Mux para entrada A da Ula
-		mux32 muxA(._input0(pcOut), ._input1(outputA), .sel(aSrc), .output_(aluA), .clk(clk_div));
+		//
+		assign regA = (aSrc)? PC : A;
+		always @(B or IR) begin
+			case(bSrc)
+					2'b00: regB = B;							//Registrador B
+					2'b01: regB = 32'd1;						//valor 1
+					2'b10: regB = {{16{IR[15]}}, IR[15:0]}; //Extensao de sinal
+					default: regB = B;
+			endcase
+		end
 		
-		//Mux para a entrada B da Ula
-		mux32B muxB(._input0(outputB), ._input1(32'd1), ._input2(immeExt), ._input3(immeExt4),
-.sel(bSrc), .output_(aluB), .clk(clk_div));
+		always @(IR or ulaOp) begin
+			case(ulaOp)
+				2'b00: aluOp = IR[5:0]; // Tipo R
+				2'b10: aluOp = 6'b000000; //soma
+				2'b01: aluOp = 6'b001111; //subtrai
+				2'b11: 
+					case (IR[31:26])
+						6'b100000: aluOp = 6'b000000;//soma imediato
+						6'b100001: aluOp = 6'b000001;//and imediato
+						6'b100010: aluOp = 6'b001000;//or imediato
+						6'b100011: aluOp = 6'b001111;//sub imediato
+						6'b100100: aluOp = 6'b001101;//set less than imediato
+						6'b100101: aluOp = 6'b001001;//set greater than imediato
+						default: aluOp = 6'b000000;//soma imediato
+					endcase
+			endcase
+		end
 		
-		//Unidade Logica Aritmetica
-		ALU ula(.regA(aluA), .regB(aluB), .zero(zero), .result(result), .aluOp(aluOp));
-		
-		//Registrador UlaOut
-		GPR ulaOut(._input(result), .output_(aluOut), .clk(clk_div), .reset(reset));
-		
-		//Registrador MDR
-		GPR MDR(._input(memOutput), .output_(mdrOut), .clk(clk_div), .reset(reset));
-		
-		//Mux para a entrada do PC
-		mux32B muxPC(._input0(result), ._input1(aluOut), ._input2({pcOut[31:28], adressJ[27:0]}),
-._input3({pcOut[31:28], adressJ[27:0]}), .sel(pcSrc), .output_(pcIn), .clk(clk_div));
-		
-		//Extensor de sinal
-		signExtend se1(._input(imme), .output_(immeExt), .clk(clk_div));
-		
-		//Shift esquerdo de 2 para o muxB
-		SL2 sl1(._input(immeExt), .output_(immeExt4), .clk(clk_div));
-		
-		//Shift esquerdo de 2 para o AdressJ
-		SL2 sl2(._input({{6{1'b0}}, rs, rt, imme}), .output_(adressJ), .clk(clk_div));
-		
-		//Mux para o dados a ser escrito no banco de registradores
-		mux32B muxData(._input0(mdrOut), ._input1(aluOut), ._input2(stdin), ._input3(stdin), 
-.sel(dataSrc), .output_(writeData), .clk(clk_div));
-		
-		//Mux para o registrador a ser escrito do banco de registradores
-		mux5 muxReg(._input0(rs), ._input1(imme[15:11]), .sel(regSrc), .output_(writeReg), .clk(clk_div));
-		
-		//Unidade de controle
-		controlUnit control(.opcode(opcode), .clk(clk_div), .reset(reset), .pcCond(pcCond),
-.pcWrite(pcWrite), .pcSrc(pcSrc), .memSrc(memSrc), .memWrite(memWrite), .memRead(memRead),
-.irWrite(irWrite), .regSrc(regSrc), .dataSrc(dataSrc), .regWrite(regWrite), .aSrc(aSrc),
-.bSrc(bSrc), .ulaOp(ulaOp), .displayWrite(displayWrite));
-		
-		//Controle da ula
-		controlULA control1(._input(imme[5:0]), .output_(aluOp), .ulaOp(ulaOp), .opcode(opcode));
-		
-		//Saida de dados
-		displayReg display(._input(aluOut), .output_(toDisplay), .clk(clk_div), .displayWrite(displayWrite), .reset(reset));
-		
-		//Encontrar digitos
-		binToBCD saida1(._input(toDisplay), .digito2(centena), .digito1(dezena), .digito0(unidade));
-
-		//Display
-		seteSegmentos digito2(._input(centena), .output_(display2), .displayWrite(displayWrite), .clk(clk), .reset(reset)); //Centena
-		seteSegmentos digito1(._input(dezena), .output_(display1), .displayWrite(displayWrite), .clk(clk), .reset(reset));  //Dezena
-		seteSegmentos digito0(._input(unidade), .output_(display0), .displayWrite(displayWrite), .clk(clk), .reset(reset));	//unidade
-		
-		//Entrada de dados
-		Entrada Buffer(._input(switch), .output_(stdin), .switchRead(switchRead),  .switchWrite(enter), .reset(reset), .clk(clk_div), .haveData(haveData));
-		
-		//Debounce enter
-		DeBounce btnEnter(.clk(clk), .n_reset(1), .button_in(btn_enter), .DB_out(enter));
+		//Bloco da ULA
+		always @(regA or regB or aluOp) begin
+			case(aluOp[5:0])								
+				6'b000000: result = regA + regB; 			//add
+				6'b000001: result = regA && regB; 			//and
+				6'b000010: result = regA / regB; 			//div
+				6'b000011: result = regA % regB; 			//mod
+				6'b000100: result = regA * regB; 			//mul
+				6'b000101: result = !(regA && regB); 		//nand
+				6'b000110: result = !(regA || regB); 		//nor
+				6'b000111: result = !regA; 					//not
+				6'b001000: result = regA || regB; 			//or
+				6'b001001: result = regA > regB ? 1 : 0; 	//sgt
+				6'b001010: result = regA >= regB ? 1 : 0; //sget
+				6'b001011: result = regA << regB; 			//sll
+				6'b001100: result = regA >> regB; 			//slr
+				6'b001101: result = regA < regB ? 1 : 0;	//slt
+				6'b001110: result = regA <= regB ? 1 : 0; //slteq
+				6'b001111: result = regA - regB; 			//sub
+				6'b010000: result = !(regA ^ regB); 		//xnor
+				6'b010001: result = regA ^ regB;			//xor
+				default: result = regA;						//Caso default
+			endcase
+		end
 		
 		always @(posedge clk) begin
-			 if (reset) begin
-				  cont <= 0;
-				  clk_div <= 0;
-			 end else begin
-				  if (cont < 499999) begin
-						cont <= cont + 19'd1;
-				  end else begin
-						cont <= 0;
-						clk_div <= ~clk_div;
-				  end
-			 end
+			aluOut <= result;
 		end
-endmodule
+		
+		//Unidade de controle
+		controlUnit control(.opcode(IR[31:26]), .clk(clk), .reset(reset), .pcCond(pcCond), .pcWrite(pcWrite), .pcSrc(pcSrc),
+.memSrc(memSrc), .memWrite(memWrite), .memRead(memRead), .irWrite(irWrite), .regSrc(regSrc), .dataSrc(dataSrc),
+.regWrite(regWrite), .aSrc(aSrc), .bSrc(bSrc), .ulaOp(ulaOp), .displayWrite(displayWrite), .estadoCU(estadoCU));
+		
+		//Testes
+		assign pcAtual = PC;
+		assign resultado = result;
+		assign estado = estadoCU;
+		assign opcode = IR[31:26];
+		assign instru = saidaMemoria;
+		
+endmodule 

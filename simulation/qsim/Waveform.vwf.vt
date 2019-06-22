@@ -1,4 +1,4 @@
-// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
 // Your use of Intel Corporation's design tools, logic functions 
 // and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "06/16/2019 23:54:38"
+// Generated on "06/22/2019 14:35:33"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          CPMath
 // 
@@ -30,26 +30,32 @@ module CPMath_vlg_vec_tst();
 // constants                                           
 // general purpose registers
 reg btn_enter;
-reg btn_reset;
 reg clk;
+reg reset;
 reg [15:0] switch;
 // wires                                               
 wire [6:0] display0;
 wire [6:0] display1;
 wire [6:0] display2;
-wire [4:0] visor;
+wire [3:0] estado;
+wire [5:0] opcode2;
+wire [31:0] pcAtual;
+wire [31:0] resultado;
 
 // assign statements (if any)                          
 CPMath i1 (
 // port map - connection between master ports and signals/registers   
 	.btn_enter(btn_enter),
-	.btn_reset(btn_reset),
 	.clk(clk),
 	.display0(display0),
 	.display1(display1),
 	.display2(display2),
-	.switch(switch),
-	.visor(visor)
+	.estado(estado),
+	.opcode2(opcode2),
+	.pcAtual(pcAtual),
+	.reset(reset),
+	.resultado(resultado),
+	.switch(switch)
 );
 initial 
 begin 
@@ -62,11 +68,20 @@ begin
 	btn_enter = 1'b0;
 end 
 
-// btn_reset
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #20000 1'b1;
+	#20000;
+end 
+
+// reset
 initial
 begin
-	btn_reset = 1'b1;
-	btn_reset = #30000 1'b0;
+	reset = 1'b0;
+	reset = #10000 1'b1;
+	reset = #20000 1'b0;
 end 
 // switch[ 15 ]
 initial
