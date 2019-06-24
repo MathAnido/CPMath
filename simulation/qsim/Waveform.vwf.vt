@@ -1,4 +1,4 @@
-// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
 // Your use of Intel Corporation's design tools, logic functions 
 // and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "06/22/2019 14:35:33"
+// Generated on "06/24/2019 03:59:31"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          CPMath
 // 
@@ -38,7 +38,8 @@ wire [6:0] display0;
 wire [6:0] display1;
 wire [6:0] display2;
 wire [3:0] estado;
-wire [5:0] opcode2;
+wire [31:0] instru;
+wire [5:0] opcode;
 wire [31:0] pcAtual;
 wire [31:0] resultado;
 
@@ -51,7 +52,8 @@ CPMath i1 (
 	.display1(display1),
 	.display2(display2),
 	.estado(estado),
-	.opcode2(opcode2),
+	.instru(instru),
+	.opcode(opcode),
 	.pcAtual(pcAtual),
 	.reset(reset),
 	.resultado(resultado),
@@ -66,21 +68,25 @@ end
 initial
 begin
 	btn_enter = 1'b0;
+	btn_enter = #190000 1'b1;
+	btn_enter = #20000 1'b0;
+	btn_enter = #60000 1'b1;
+	btn_enter = #20000 1'b0;
 end 
 
 // clk
 always
 begin
 	clk = 1'b0;
-	clk = #20000 1'b1;
-	#20000;
+	clk = #10000 1'b1;
+	#10000;
 end 
 
 // reset
 initial
 begin
 	reset = 1'b0;
-	reset = #10000 1'b1;
+	reset = #20000 1'b1;
 	reset = #20000 1'b0;
 end 
 // switch[ 15 ]
@@ -141,27 +147,33 @@ end
 // switch[ 4 ]
 initial
 begin
-	switch[4] = 1'b0;
+	switch[4] = 1'b1;
 end 
 // switch[ 3 ]
 initial
 begin
-	switch[3] = 1'b0;
+	switch[3] = 1'b1;
 end 
 // switch[ 2 ]
 initial
 begin
 	switch[2] = 1'b0;
+	switch[2] = #200000 1'b1;
+	switch[2] = #90000 1'b0;
 end 
 // switch[ 1 ]
 initial
 begin
 	switch[1] = 1'b0;
+	switch[1] = #200000 1'b1;
+	switch[1] = #90000 1'b0;
 end 
 // switch[ 0 ]
 initial
 begin
-	switch[0] = 1'b0;
+	switch[0] = 1'b1;
+	switch[0] = #200000 1'b0;
+	switch[0] = #90000 1'b1;
 end 
 endmodule
 

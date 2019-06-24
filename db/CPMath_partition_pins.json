@@ -4,6 +4,22 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "display0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[5]",
+					"strict" : false
+				},
+				{
 					"name" : "pcAtual[0]",
 					"strict" : false
 				},
@@ -428,11 +444,79 @@
 					"strict" : false
 				},
 				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "switch[0]",
+					"strict" : false
+				},
+				{
+					"name" : "btn_enter",
+					"strict" : false
+				},
+				{
+					"name" : "switch[1]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[2]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[3]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[4]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[5]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[6]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[8]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[7]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[9]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[10]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[11]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[12]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[13]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[14]",
+					"strict" : false
+				},
+				{
+					"name" : "switch[15]",
 					"strict" : false
 				}
 			]

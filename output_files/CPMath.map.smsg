@@ -1,1 +1,1 @@
-Warning (10273): Verilog HDL warning at CPMath.v(72): extended using "x" or "z" File: /home-local/aluno/CPMath/CPMath.v Line: 72
+Info (10281): Verilog HDL Declaration information at CPMath.v(37): object "display" differs only in case from object "Display" in the same scope File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 37

@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Sat Jun 22 19:47:44 2019
-Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Standard Edition
+Analysis & Synthesis Status : Successful - Mon Jun 24 03:58:42 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : CPMath
 Top-level Entity Name : CPMath
 Family : Cyclone IV E
-Total logic elements : 17,236
-    Total combinational functions : 8,977
-    Dedicated logic registers : 8,529
-Total registers : 8529
+Total logic elements : 19,636
+    Total combinational functions : 10,692
+    Dedicated logic registers : 9,394
+Total registers : 9394
 Total pins : 146
 Total virtual pins : 0
-Total memory bits : 2,048
+Total memory bits : 0
 Embedded Multiplier 9-bit elements : 6
 Total PLLs : 0

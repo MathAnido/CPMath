@@ -1,6 +1,6 @@
 Analysis & Synthesis report for CPMath
-Sat Jun 22 19:47:44 2019
-Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
+Mon Jun 24 03:58:43 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -13,35 +13,34 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis DSP Block Usage Summary
- 10. State Machine - |CPMath|controlUnit:control|estado
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Registers Added for RAM Pass-Through Logic
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for altsyncram:registradores_rtl_0|altsyncram_lbi1:auto_generated
- 16. Source assignments for altsyncram:registradores_rtl_1|altsyncram_lbi1:auto_generated
- 17. Parameter Settings for User Entity Instance: controlUnit:control
- 18. Parameter Settings for Inferred Entity Instance: altsyncram:registradores_rtl_0
- 19. Parameter Settings for Inferred Entity Instance: altsyncram:registradores_rtl_1
- 20. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
- 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 23. altsyncram Parameter Settings by Entity Instance
- 24. lpm_mult Parameter Settings by Entity Instance
- 25. Port Connectivity Checks: "controlUnit:control"
- 26. Post-Synthesis Netlist Statistics for Top Partition
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
- 29. Analysis & Synthesis Suppressed Messages
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |CPMath|controlUnit:control|estado
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: controlUnit:control
+ 14. Parameter Settings for User Entity Instance: DeBounce:btnEnter
+ 15. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 16. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 18. lpm_mult Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "DeBounce:btnEnter"
+ 20. Port Connectivity Checks: "seteSegmentos:digito0"
+ 21. Port Connectivity Checks: "seteSegmentos:digito1"
+ 22. Port Connectivity Checks: "seteSegmentos:digito2"
+ 23. Port Connectivity Checks: "binToBCD:toBCD"
+ 24. Port Connectivity Checks: "displayReg:saida"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2017  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -57,110 +56,110 @@ refer to the applicable agreement for further details.
 
 
 
-+--------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                         ;
-+------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 22 19:47:44 2019           ;
-; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Standard Edition ;
-; Revision Name                      ; CPMath                                          ;
-; Top-level Entity Name              ; CPMath                                          ;
-; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 17,236                                          ;
-;     Total combinational functions  ; 8,977                                           ;
-;     Dedicated logic registers      ; 8,529                                           ;
-; Total registers                    ; 8529                                            ;
-; Total pins                         ; 146                                             ;
-; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 2,048                                           ;
-; Embedded Multiplier 9-bit elements ; 6                                               ;
-; Total PLLs                         ; 0                                               ;
-+------------------------------------+-------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jun 24 03:58:42 2019       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; CPMath                                      ;
+; Top-level Entity Name              ; CPMath                                      ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 19,636                                      ;
+;     Total combinational functions  ; 10,692                                      ;
+;     Dedicated logic registers      ; 9,394                                       ;
+; Total registers                    ; 9394                                        ;
+; Total pins                         ; 146                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 6                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                        ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                     ; Setting            ; Default Value      ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; CPMath             ; CPMath             ;
-; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
-; Use smart compilation                                                      ; Off                ; Off                ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
-; Enable compact report table                                                ; Off                ; Off                ;
-; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
-; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
-; Preserve fewer node names                                                  ; On                 ; On                 ;
-; Intel FPGA IP Evaluation Mode                                              ; Enable             ; Enable             ;
-; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                   ; Auto               ; Auto               ;
-; Safe State Machine                                                         ; Off                ; Off                ;
-; Extract Verilog State Machines                                             ; On                 ; On                 ;
-; Extract VHDL State Machines                                                ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
-; Parallel Synthesis                                                         ; On                 ; On                 ;
-; DSP Block Balancing                                                        ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                         ; On                 ; On                 ;
-; Power-Up Don't Care                                                        ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
-; Remove Duplicate Registers                                                 ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
-; Optimization Technique                                                     ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                         ; 70                 ; 70                 ;
-; Auto Carry Chains                                                          ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
-; Auto ROM Replacement                                                       ; On                 ; On                 ;
-; Auto RAM Replacement                                                       ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
-; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
-; Strict RAM Replacement                                                     ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
-; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
-; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                      ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
-; Report Parameter Settings                                                  ; On                 ; On                 ;
-; Report Source Assignments                                                  ; On                 ; On                 ;
-; Report Connectivity Checks                                                 ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
-; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
-; Power Optimization During Synthesis                                        ; Normal compilation ; Normal compilation ;
-; HDL message level                                                          ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
-; Clock MUX Protection                                                       ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
-; Block Design Naming                                                        ; Auto               ; Auto               ;
-; SDC constraint protection                                                  ; Off                ; Off                ;
-; Synthesis Effort                                                           ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
-+----------------------------------------------------------------------------+--------------------+--------------------+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; CPMath             ; CPMath             ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
 
 
 +------------------------------------------+
@@ -168,53 +167,54 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
-; Maximum used               ; 4           ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.4%      ;
-;     Processor 3            ;   0.3%      ;
-;     Processor 4            ;   0.3%      ;
+;     Processor 2            ;   0.2%      ;
+;     Processor 3            ;   0.2%      ;
+;     Processor 4            ;   0.2%      ;
+;     Processor 5            ;   0.2%      ;
+;     Processor 6            ;   0.2%      ;
+;     Processor 7            ;   0.2%      ;
+;     Processor 8            ;   0.2%      ;
+;     Processors 9-12        ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                  ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                              ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
-; controlUnit.v                    ; yes             ; User Verilog HDL File        ; /home-local/aluno/CPMath/controlUnit.v                                    ;         ;
-; CPMath.v                         ; yes             ; User Verilog HDL File        ; /home-local/aluno/CPMath/CPMath.v                                         ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal171.inc                   ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/aglobal171.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_lbi1.tdf           ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/CPMath/db/altsyncram_lbi1.tdf                           ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/multcore.inc          ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/bypassff.inc          ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/altshift.inc          ;         ;
-; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/CPMath/db/mult_7dt.tdf                                  ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /opt/intelFPGA/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
-; db/lpm_divide_hkm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/CPMath/db/lpm_divide_hkm.tdf                            ;         ;
-; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/CPMath/db/sign_div_unsign_9nh.tdf                       ;         ;
-; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/CPMath/db/alt_u_div_6af.tdf                             ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/CPMath/db/add_sub_7pc.tdf                               ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/CPMath/db/add_sub_8pc.tdf                               ;         ;
-; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home-local/aluno/CPMath/db/lpm_divide_kcm.tdf                            ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------+---------+
+; binToBCD.v                       ; yes             ; User Verilog HDL File            ; C:/Users/mathe/Desktop/CPMath/binToBCD.v                                   ;         ;
+; jr.mif                           ; yes             ; User Memory Initialization File  ; C:/Users/mathe/Desktop/CPMath/jr.mif                                       ;         ;
+; controlUnit.v                    ; yes             ; User Verilog HDL File            ; C:/Users/mathe/Desktop/CPMath/controlUnit.v                                ;         ;
+; CPMath.v                         ; yes             ; User Verilog HDL File            ; C:/Users/mathe/Desktop/CPMath/CPMath.v                                     ;         ;
+; DeBounce.v                       ; yes             ; User Verilog HDL File            ; C:/Users/mathe/Desktop/CPMath/DeBounce.v                                   ;         ;
+; seteSegmentos.v                  ; yes             ; User Verilog HDL File            ; C:/Users/mathe/Desktop/CPMath/seteSegmentos.v                              ;         ;
+; displayReg.v                     ; yes             ; User Verilog HDL File            ; C:/Users/mathe/Desktop/CPMath/displayReg.v                                 ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc      ;         ;
+; db/lpm_divide_hkm.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Users/mathe/Desktop/CPMath/db/lpm_divide_hkm.tdf                        ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction      ; C:/Users/mathe/Desktop/CPMath/db/sign_div_unsign_9nh.tdf                   ;         ;
+; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction      ; C:/Users/mathe/Desktop/CPMath/db/alt_u_div_6af.tdf                         ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction      ; C:/Users/mathe/Desktop/CPMath/db/add_sub_7pc.tdf                           ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction      ; C:/Users/mathe/Desktop/CPMath/db/add_sub_8pc.tdf                           ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                     ; e:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction      ; C:/Users/mathe/Desktop/CPMath/db/mult_7dt.tdf                              ;         ;
+; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Users/mathe/Desktop/CPMath/db/lpm_divide_kcm.tdf                        ;         ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -222,31 +222,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 17,236    ;
+; Estimated Total logic elements              ; 19,636    ;
 ;                                             ;           ;
-; Total combinational functions               ; 8977      ;
+; Total combinational functions               ; 10692     ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 6981      ;
-;     -- 3 input functions                    ; 1667      ;
-;     -- <=2 input functions                  ; 329       ;
+;     -- 4 input functions                    ; 8881      ;
+;     -- 3 input functions                    ; 1650      ;
+;     -- <=2 input functions                  ; 161       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 7807      ;
+;     -- normal mode                          ; 9522      ;
 ;     -- arithmetic mode                      ; 1170      ;
 ;                                             ;           ;
-; Total registers                             ; 8529      ;
-;     -- Dedicated logic registers            ; 8529      ;
+; Total registers                             ; 9394      ;
+;     -- Dedicated logic registers            ; 9394      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 146       ;
-; Total memory bits                           ; 2048      ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 6         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 8593      ;
-; Total fan-out                               ; 60135     ;
-; Average fan-out                             ; 3.37      ;
+; Maximum fan-out                             ; 9394      ;
+; Total fan-out                               ; 70718     ;
+; Average fan-out                             ; 3.47      ;
 +---------------------------------------------+-----------+
 
 
@@ -255,35 +254,23 @@ refer to the applicable agreement for further details.
 +----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                           ; Entity Name         ; Library Name ;
 +----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |CPMath                                ; 8977 (6770)         ; 8529 (8502)               ; 2048        ; 6            ; 0       ; 3         ; 146  ; 0            ; |CPMath                                                                                                                       ; CPMath              ; work         ;
-;    |altsyncram:registradores_rtl_0|    ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|altsyncram:registradores_rtl_0                                                                                        ; altsyncram          ; work         ;
-;       |altsyncram_lbi1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|altsyncram:registradores_rtl_0|altsyncram_lbi1:auto_generated                                                         ; altsyncram_lbi1     ; work         ;
-;    |altsyncram:registradores_rtl_1|    ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|altsyncram:registradores_rtl_1                                                                                        ; altsyncram          ; work         ;
-;       |altsyncram_lbi1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|altsyncram:registradores_rtl_1|altsyncram_lbi1:auto_generated                                                         ; altsyncram_lbi1     ; work         ;
-;    |controlUnit:control|               ; 34 (34)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|controlUnit:control                                                                                                   ; controlUnit         ; work         ;
-;    |lpm_divide:Div0|                   ; 1075 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
-;       |lpm_divide_hkm:auto_generated|  ; 1075 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                         ; lpm_divide_hkm      ; work         ;
-;          |sign_div_unsign_9nh:divider| ; 1075 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
-;             |alt_u_div_6af:divider|    ; 1075 (1075)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
-;    |lpm_divide:Mod0|                   ; 1070 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
-;       |lpm_divide_kcm:auto_generated|  ; 1070 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                                         ; lpm_divide_kcm      ; work         ;
-;          |sign_div_unsign_9nh:divider| ; 1070 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
-;             |alt_u_div_6af:divider|    ; 1070 (1069)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
-;                |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+; |CPMath                                ; 10692 (8417)        ; 9394 (9376)               ; 0           ; 6            ; 0       ; 3         ; 146  ; 0            ; |CPMath                                                                                                                       ; CPMath              ; work         ;
+;    |controlUnit:control|               ; 38 (38)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|controlUnit:control                                                                                                   ; controlUnit         ; work         ;
+;    |displayReg:saida|                  ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|displayReg:saida                                                                                                      ; displayReg          ; work         ;
+;    |lpm_divide:Div0|                   ; 1118 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
+;       |lpm_divide_hkm:auto_generated|  ; 1118 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                         ; lpm_divide_hkm      ; work         ;
+;          |sign_div_unsign_9nh:divider| ; 1118 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
+;             |alt_u_div_6af:divider|    ; 1118 (1117)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
+;                |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;    |lpm_divide:Mod0|                   ; 1088 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
+;       |lpm_divide_kcm:auto_generated|  ; 1088 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                                         ; lpm_divide_kcm      ; work         ;
+;          |sign_div_unsign_9nh:divider| ; 1088 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
+;             |alt_u_div_6af:divider|    ; 1088 (1088)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
 ;    |lpm_mult:Mult0|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |CPMath|lpm_mult:Mult0                                                                                                        ; lpm_mult            ; work         ;
 ;       |mult_7dt:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |CPMath|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                ; mult_7dt            ; work         ;
+;    |seteSegmentos:digito0|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPMath|seteSegmentos:digito0                                                                                                 ; seteSegmentos       ; work         ;
 +----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                             ;
-+--------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                     ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+--------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; altsyncram:registradores_rtl_0|altsyncram_lbi1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None ;
-; altsyncram:registradores_rtl_1|altsyncram_lbi1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None ;
-+--------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
 +-----------------------------------------------------+
@@ -305,41 +292,53 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |CPMath|controlUnit:control|estado                                                                                                                                     ;
-+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-; Name       ; estado.s13 ; estado.s12 ; estado.s11 ; estado.s10 ; estado.s9 ; estado.s8 ; estado.s7 ; estado.s6 ; estado.s5 ; estado.s4 ; estado.s3 ; estado.s2 ; estado.s1 ; estado.s0 ;
-+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-; estado.s0  ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ;
-; estado.s1  ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 1         ;
-; estado.s2  ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 1         ;
-; estado.s3  ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 1         ;
-; estado.s4  ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s5  ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s6  ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s7  ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s8  ; 0          ; 0          ; 0          ; 0          ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s9  ; 0          ; 0          ; 0          ; 0          ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s10 ; 0          ; 0          ; 0          ; 1          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s11 ; 0          ; 0          ; 1          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s12 ; 0          ; 1          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; estado.s13 ; 1          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |CPMath|controlUnit:control|estado                                                                                                                                                               ;
++------------+------------+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; Name       ; estado.s15 ; estado.s14 ; estado.s13 ; estado.s12 ; estado.s11 ; estado.s10 ; estado.s9 ; estado.s8 ; estado.s7 ; estado.s6 ; estado.s5 ; estado.s4 ; estado.s3 ; estado.s2 ; estado.s1 ; estado.s0 ;
++------------+------------+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; estado.s0  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ;
+; estado.s1  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 1         ;
+; estado.s2  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 1         ;
+; estado.s3  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 1         ;
+; estado.s4  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s5  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s6  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s7  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s8  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s9  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s10 ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s11 ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s12 ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s13 ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s14 ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; estado.s15 ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
++------------+------------+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+---------------------------------------+-----------------------------------------+
-; Register name                         ; Reason for Removal                      ;
-+---------------------------------------+-----------------------------------------+
-; controlUnit:control|dataSrc[1]        ; Stuck at GND due to stuck port data_in  ;
-; controlUnit:control|ulaOp[1]          ; Merged with controlUnit:control|bSrc[1] ;
-; controlUnit:control|estado~10         ; Lost fanout                             ;
-; controlUnit:control|estado~11         ; Lost fanout                             ;
-; controlUnit:control|estado~12         ; Lost fanout                             ;
-; controlUnit:control|estado~13         ; Lost fanout                             ;
-; Total Number of Removed Registers = 6 ;                                         ;
-+---------------------------------------+-----------------------------------------+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++----------------------------------------+----------------------------------------------+
+; Register name                          ; Reason for Removal                           ;
++----------------------------------------+----------------------------------------------+
+; seteSegmentos:digito2|output_[3..5]    ; Merged with seteSegmentos:digito2|output_[0] ;
+; seteSegmentos:digito2|output_[2]       ; Merged with seteSegmentos:digito2|output_[1] ;
+; seteSegmentos:digito1|output_[3..5]    ; Merged with seteSegmentos:digito1|output_[0] ;
+; seteSegmentos:digito1|output_[2]       ; Merged with seteSegmentos:digito1|output_[1] ;
+; seteSegmentos:digito0|output_[3..5]    ; Merged with seteSegmentos:digito0|output_[0] ;
+; seteSegmentos:digito0|output_[2]       ; Merged with seteSegmentos:digito0|output_[1] ;
+; seteSegmentos:digito0|output_[1]       ; Stuck at GND due to stuck port data_in       ;
+; seteSegmentos:digito1|output_[0,1]     ; Stuck at GND due to stuck port data_in       ;
+; seteSegmentos:digito2|output_[0,1]     ; Stuck at GND due to stuck port data_in       ;
+; seteSegmentos:digito2|output_[6]       ; Stuck at VCC due to stuck port data_in       ;
+; seteSegmentos:digito1|output_[6]       ; Stuck at VCC due to stuck port data_in       ;
+; seteSegmentos:digito0|output_[6]       ; Stuck at VCC due to stuck port data_in       ;
+; controlUnit:control|estado~7           ; Lost fanout                                  ;
+; controlUnit:control|estado~8           ; Lost fanout                                  ;
+; controlUnit:control|estado~9           ; Lost fanout                                  ;
+; controlUnit:control|estado~10          ; Lost fanout                                  ;
+; Total Number of Removed Registers = 24 ;                                              ;
++----------------------------------------+----------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -347,157 +346,111 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 8529  ;
-; Number of registers using Synchronous Clear  ; 33    ;
-; Number of registers using Synchronous Load   ; 26    ;
+; Total registers                              ; 9394  ;
+; Number of registers using Synchronous Clear  ; 545   ;
+; Number of registers using Synchronous Load   ; 518   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8279  ;
+; Number of registers using Clock Enable       ; 9314  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------+
-; Registers Added for RAM Pass-Through Logic           ;
-+--------------------------------+---------------------+
-; Register Name                  ; RAM Name            ;
-+--------------------------------+---------------------+
-; registradores_rtl_0_bypass[0]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[1]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[2]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[3]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[4]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[5]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[6]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[7]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[8]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[9]  ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[10] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[11] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[12] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[13] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[14] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[15] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[16] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[17] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[18] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[19] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[20] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[21] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[22] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[23] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[24] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[25] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[26] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[27] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[28] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[29] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[30] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[31] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[32] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[33] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[34] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[35] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[36] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[37] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[38] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[39] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[40] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[41] ; registradores_rtl_0 ;
-; registradores_rtl_0_bypass[42] ; registradores_rtl_0 ;
-; registradores_rtl_1_bypass[0]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[1]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[2]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[3]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[4]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[5]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[6]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[7]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[8]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[9]  ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[10] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[11] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[12] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[13] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[14] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[15] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[16] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[17] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[18] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[19] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[20] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[21] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[22] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[23] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[24] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[25] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[26] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[27] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[28] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[29] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[30] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[31] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[32] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[33] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[34] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[35] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[36] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[37] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[38] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[39] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[40] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[41] ; registradores_rtl_1 ;
-; registradores_rtl_1_bypass[42] ; registradores_rtl_1 ;
-+--------------------------------+---------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[111][5]            ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[110][29]           ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[109][3]            ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[108][5]            ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[107][6]            ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[106][14]           ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[105][24]           ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[0][16]             ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |CPMath|A[16]                      ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |CPMath|B[4]                       ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |CPMath|PC[26]                     ;
-; 6:1                ; 26 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |CPMath|PC[11]                     ;
-; 256:1              ; 32 bits   ; 5440 LEs      ; 5440 LEs             ; 0 LEs                  ; Yes        ; |CPMath|saidaMemoria[7]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPMath|Mux130                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |CPMath|Mux122                     ;
-; 10:1               ; 6 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |CPMath|controlUnit:control|estado ;
-; 35:1               ; 8 bits    ; 184 LEs       ; 56 LEs               ; 128 LEs                ; No         ; |CPMath|Mux143                     ;
-; 35:1               ; 8 bits    ; 184 LEs       ; 56 LEs               ; 128 LEs                ; No         ; |CPMath|Mux150                     ;
-; 36:1               ; 4 bits    ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; No         ; |CPMath|Mux138                     ;
-; 36:1               ; 4 bits    ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; No         ; |CPMath|Mux157                     ;
-; 37:1               ; 2 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |CPMath|Mux134                     ;
-; 37:1               ; 2 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |CPMath|Mux160                     ;
-; 38:1               ; 2 bits    ; 50 LEs        ; 16 LEs               ; 34 LEs                 ; No         ; |CPMath|Mux132                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-
-
-+--------------------------------------------------------------------------------------+
-; Source assignments for altsyncram:registradores_rtl_0|altsyncram_lbi1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------+
-; Assignment                      ; Value              ; From ; To                     ;
-+---------------------------------+--------------------+------+------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                      ;
-+---------------------------------+--------------------+------+------------------------+
-
-
-+--------------------------------------------------------------------------------------+
-; Source assignments for altsyncram:registradores_rtl_1|altsyncram_lbi1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------+
-; Assignment                      ; Value              ; From ; To                     ;
-+---------------------------------+--------------------+------+------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                      ;
-+---------------------------------+--------------------+------+------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |CPMath|seteSegmentos:digito0|output_[6] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |CPMath|displayReg:saida|output_[0]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[112][1]                  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[111][25]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[110][19]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[109][18]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[108][8]                  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[107][24]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[106][22]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPMath|memoria[0][31]                   ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |CPMath|PC[29]                           ;
+; 6:1                ; 26 bits   ; 104 LEs       ; 78 LEs               ; 26 LEs                 ; Yes        ; |CPMath|PC[10]                           ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[31][19]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[31][0]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[30][28]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[30][14]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[29][18]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[29][0]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[28][27]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[28][0]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[27][29]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[27][15]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[26][16]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[26][6]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[25][26]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[25][13]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[24][16]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[24][2]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[23][24]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[23][11]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[22][27]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[22][3]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[21][29]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[21][14]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[20][24]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[20][4]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[19][27]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[19][4]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[18][16]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[18][11]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[17][20]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[17][7]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[16][17]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[16][3]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[15][17]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[15][0]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[14][25]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[14][2]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[13][21]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[13][0]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[12][27]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[12][13]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[11][21]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[11][2]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[10][25]            ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[10][7]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[9][30]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[9][11]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[8][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[8][0]              ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[7][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[7][12]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[6][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[6][13]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[5][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[5][3]              ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[4][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[4][7]              ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[3][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[3][0]              ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[2][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[2][15]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[1][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[1][12]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[0][27]             ;
+; 12:1               ; 16 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |CPMath|registradores[0][5]              ;
+; 256:1              ; 32 bits   ; 5440 LEs      ; 5440 LEs             ; 0 LEs                  ; Yes        ; |CPMath|saidaMemoria[29]                 ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |CPMath|Mux1184                          ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |CPMath|Mux8                             ;
+; 10:1               ; 6 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |CPMath|controlUnit:control|estado       ;
+; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |CPMath|A[2]                             ;
+; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |CPMath|B[3]                             ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 56 LEs               ; 120 LEs                ; No         ; |CPMath|Mux1200                          ;
+; 34:1               ; 8 bits    ; 176 LEs       ; 56 LEs               ; 120 LEs                ; No         ; |CPMath|Mux1209                          ;
+; 35:1               ; 4 bits    ; 92 LEs        ; 32 LEs               ; 60 LEs                 ; No         ; |CPMath|Mux1193                          ;
+; 35:1               ; 4 bits    ; 92 LEs        ; 32 LEs               ; 60 LEs                 ; No         ; |CPMath|Mux1216                          ;
+; 36:1               ; 2 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |CPMath|Mux1192                          ;
+; 36:1               ; 2 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |CPMath|Mux1218                          ;
+; 37:1               ; 2 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |CPMath|Mux1189                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
 
 
 +------------------------------------------------------------------+
@@ -519,129 +472,42 @@ Encoding Type:  One-Hot
 ; s11            ; 1011  ; Unsigned Binary                         ;
 ; s12            ; 1100  ; Unsigned Binary                         ;
 ; s13            ; 1101  ; Unsigned Binary                         ;
+; s14            ; 1110  ; Unsigned Binary                         ;
+; s15            ; 1111  ; Unsigned Binary                         ;
 +----------------+-------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: altsyncram:registradores_rtl_0 ;
-+------------------------------------+----------------------+---------------------+
-; Parameter Name                     ; Value                ; Type                ;
-+------------------------------------+----------------------+---------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped             ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY          ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY        ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE        ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE      ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped             ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped             ;
-; WIDTH_A                            ; 32                   ; Untyped             ;
-; WIDTHAD_A                          ; 5                    ; Untyped             ;
-; NUMWORDS_A                         ; 32                   ; Untyped             ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped             ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped             ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped             ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped             ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped             ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped             ;
-; WIDTH_B                            ; 32                   ; Untyped             ;
-; WIDTHAD_B                          ; 5                    ; Untyped             ;
-; NUMWORDS_B                         ; 32                   ; Untyped             ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped             ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped             ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped             ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped             ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped             ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped             ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped             ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped             ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped             ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped             ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped             ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped             ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped             ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped             ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped             ;
-; BYTE_SIZE                          ; 8                    ; Untyped             ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped             ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped             ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped             ;
-; INIT_FILE                          ; UNUSED               ; Untyped             ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped             ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped             ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped             ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped             ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped             ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped             ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped             ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped             ;
-; ENABLE_ECC                         ; FALSE                ; Untyped             ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped             ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped             ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped             ;
-; CBXI_PARAMETER                     ; altsyncram_lbi1      ; Untyped             ;
-+------------------------------------+----------------------+---------------------+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DeBounce:btnEnter ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; N              ; 11    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: altsyncram:registradores_rtl_1 ;
-+------------------------------------+----------------------+---------------------+
-; Parameter Name                     ; Value                ; Type                ;
-+------------------------------------+----------------------+---------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped             ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY          ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY        ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE        ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE      ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped             ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped             ;
-; WIDTH_A                            ; 32                   ; Untyped             ;
-; WIDTHAD_A                          ; 5                    ; Untyped             ;
-; NUMWORDS_A                         ; 32                   ; Untyped             ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped             ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped             ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped             ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped             ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped             ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped             ;
-; WIDTH_B                            ; 32                   ; Untyped             ;
-; WIDTHAD_B                          ; 5                    ; Untyped             ;
-; NUMWORDS_B                         ; 32                   ; Untyped             ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped             ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped             ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped             ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped             ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped             ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped             ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped             ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped             ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped             ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped             ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped             ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped             ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped             ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped             ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped             ;
-; BYTE_SIZE                          ; 8                    ; Untyped             ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped             ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped             ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped             ;
-; INIT_FILE                          ; UNUSED               ; Untyped             ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped             ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped             ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped             ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped             ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped             ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped             ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped             ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped             ;
-; ENABLE_ECC                         ; FALSE                ; Untyped             ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped             ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped             ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped             ;
-; CBXI_PARAMETER                     ; altsyncram_lbi1      ; Untyped             ;
-+------------------------------------+----------------------+---------------------+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 32             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_hkm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -681,29 +547,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_hkm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
@@ -726,37 +569,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                           ;
-+-------------------------------------------+--------------------------------+
-; Name                                      ; Value                          ;
-+-------------------------------------------+--------------------------------+
-; Number of entity instances                ; 2                              ;
-; Entity Instance                           ; altsyncram:registradores_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                      ;
-;     -- WIDTH_A                            ; 32                             ;
-;     -- NUMWORDS_A                         ; 32                             ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                   ;
-;     -- WIDTH_B                            ; 32                             ;
-;     -- NUMWORDS_B                         ; 32                             ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                         ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                   ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                           ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                       ;
-; Entity Instance                           ; altsyncram:registradores_rtl_1 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                      ;
-;     -- WIDTH_A                            ; 32                             ;
-;     -- NUMWORDS_A                         ; 32                             ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                   ;
-;     -- WIDTH_B                            ; 32                             ;
-;     -- NUMWORDS_B                         ; 32                             ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                         ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                   ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                           ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                       ;
-+-------------------------------------------+--------------------------------+
-
-
 +--------------------------------------------------------+
 ; lpm_mult Parameter Settings by Entity Instance         ;
 +---------------------------------------+----------------+
@@ -777,15 +589,63 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "controlUnit:control"                                                                        ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; pcCond       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; memRead      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; displayWrite ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DeBounce:btnEnter"                                                                                                                                                                        ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; n_reset     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; n_reset[-1] ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; DB_out      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seteSegmentos:digito0"                                                                                                                          ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; _input ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "_input[3..1]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seteSegmentos:digito1"                                                                                                                          ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; _input ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "_input[3..1]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seteSegmentos:digito2"                                                                                                                          ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; _input ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "_input[3..1]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "binToBCD:toBCD"                                                                                                                                     ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                          ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; _input  ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "_input[31..1]" will be connected to GND. ;
+; digito2 ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "digito2[3..1]" have no fanouts                       ;
+; digito1 ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "digito1[3..1]" have no fanouts                       ;
+; digito0 ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "digito0[3..1]" have no fanouts                       ;
++---------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "displayReg:saida"                                                                                                               ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                      ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
+; output_ ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "output_[31..1]" have no fanouts ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -794,28 +654,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 146                         ;
-; cycloneiii_ff         ; 8529                        ;
-;     ENA               ; 8247                        ;
-;     ENA SCLR          ; 6                           ;
-;     ENA SCLR SLD      ; 26                          ;
+; cycloneiii_ff         ; 9394                        ;
+;     ENA               ; 8274                        ;
+;     ENA SCLR          ; 522                         ;
+;     ENA SCLR SLD      ; 22                          ;
+;     ENA SLD           ; 496                         ;
 ;     SCLR              ; 1                           ;
-;     plain             ; 249                         ;
-; cycloneiii_lcell_comb ; 8979                        ;
+;     plain             ; 79                          ;
+; cycloneiii_lcell_comb ; 10698                       ;
 ;     arith             ; 1170                        ;
 ;         2 data inputs ; 1                           ;
 ;         3 data inputs ; 1169                        ;
-;     normal            ; 7809                        ;
-;         0 data inputs ; 61                          ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 267                         ;
-;         3 data inputs ; 498                         ;
-;         4 data inputs ; 6981                        ;
+;     normal            ; 9528                        ;
+;         0 data inputs ; 62                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 100                         ;
+;         3 data inputs ; 481                         ;
+;         4 data inputs ; 8881                        ;
 ; cycloneiii_mac_mult   ; 3                           ;
 ; cycloneiii_mac_out    ; 3                           ;
-; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 126.50                      ;
-; Average LUT depth     ; 27.83                       ;
+; Max LUT depth         ; 134.50                      ;
+; Average LUT depth     ; 39.08                       ;
 +-----------------------+-----------------------------+
 
 
@@ -824,7 +684,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:24     ;
+; Top            ; 00:00:43     ;
 +----------------+--------------+
 
 
@@ -833,121 +693,56 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
-    Info: Processing started: Sat Jun 22 19:47:05 2019
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Mon Jun 24 03:57:45 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPMath -c CPMath
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file SL2.v
-    Info (12023): Found entity 1: SL2 File: /home-local/aluno/CPMath/SL2.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file signExtend.v
-    Info (12023): Found entity 1: signExtend File: /home-local/aluno/CPMath/signExtend.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file saida.v
-    Info (12023): Found entity 1: saida File: /home-local/aluno/CPMath/saida.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file registers.v
-    Info (12023): Found entity 1: registers File: /home-local/aluno/CPMath/registers.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file PC.v
-    Info (12023): Found entity 1: PC File: /home-local/aluno/CPMath/PC.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file mux32B.v
-    Info (12023): Found entity 1: mux32B File: /home-local/aluno/CPMath/mux32B.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file mux32.v
-    Info (12023): Found entity 1: mux32 File: /home-local/aluno/CPMath/mux32.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file mux5.v
-    Info (12023): Found entity 1: mux5 File: /home-local/aluno/CPMath/mux5.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file memory.v
-    Info (12023): Found entity 1: memory File: /home-local/aluno/CPMath/memory.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file IR.v
-    Info (12023): Found entity 1: IR File: /home-local/aluno/CPMath/IR.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file GPR.v
-    Info (12023): Found entity 1: GPR File: /home-local/aluno/CPMath/GPR.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Entrada.v
-    Info (12023): Found entity 1: Entrada File: /home-local/aluno/CPMath/Entrada.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file controlUnit.v
-    Info (12023): Found entity 1: controlUnit File: /home-local/aluno/CPMath/controlUnit.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file BCD.v
-    Info (12023): Found entity 1: BCD File: /home-local/aluno/CPMath/BCD.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file ALU.v
-    Info (12023): Found entity 1: ALU File: /home-local/aluno/CPMath/ALU.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file controlULA.v
-    Info (12023): Found entity 1: controlULA File: /home-local/aluno/CPMath/controlULA.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file CPMath.v
-    Info (12023): Found entity 1: CPMath File: /home-local/aluno/CPMath/CPMath.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file divisorClk.v
-    Info (12023): Found entity 1: divisorClk File: /home-local/aluno/CPMath/divisorClk.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file DeBounce.v
-    Info (12023): Found entity 1: DeBounce File: /home-local/aluno/CPMath/DeBounce.v Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file binToBCD.v
-    Info (12023): Found entity 1: binToBCD File: /home-local/aluno/CPMath/binToBCD.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file seteSegmentos.v
-    Info (12023): Found entity 1: seteSegmentos File: /home-local/aluno/CPMath/seteSegmentos.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file displayReg.v
-    Info (12023): Found entity 1: displayReg File: /home-local/aluno/CPMath/displayReg.v Line: 1
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file bintobcd.v
+    Info (12023): Found entity 1: binToBCD File: C:/Users/mathe/Desktop/CPMath/binToBCD.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
+    Info (12023): Found entity 1: controlUnit File: C:/Users/mathe/Desktop/CPMath/controlUnit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bcd.v
+    Info (12023): Found entity 1: BCD File: C:/Users/mathe/Desktop/CPMath/BCD.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cpmath.v
+    Info (12023): Found entity 1: CPMath File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file divisorclk.v
+    Info (12023): Found entity 1: divisorClk File: C:/Users/mathe/Desktop/CPMath/divisorClk.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file debounce.v
+    Info (12023): Found entity 1: DeBounce File: C:/Users/mathe/Desktop/CPMath/DeBounce.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file setesegmentos.v
+    Info (12023): Found entity 1: seteSegmentos File: C:/Users/mathe/Desktop/CPMath/seteSegmentos.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file displayreg.v
+    Info (12023): Found entity 1: displayReg File: C:/Users/mathe/Desktop/CPMath/displayReg.v Line: 1
 Info (12127): Elaborating entity "CPMath" for the top level hierarchy
-Warning (10235): Verilog HDL Always Construct warning at CPMath.v(109): variable "bSrc" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home-local/aluno/CPMath/CPMath.v Line: 109
-Warning (10034): Output port "display2" at CPMath.v(11) has no driver File: /home-local/aluno/CPMath/CPMath.v Line: 11
-Warning (10034): Output port "display1" at CPMath.v(11) has no driver File: /home-local/aluno/CPMath/CPMath.v Line: 11
-Warning (10034): Output port "display0" at CPMath.v(11) has no driver File: /home-local/aluno/CPMath/CPMath.v Line: 11
-Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control" File: /home-local/aluno/CPMath/CPMath.v Line: 167
-Warning (276020): Inferred RAM node "registradores_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Warning (276020): Inferred RAM node "registradores_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Info (19000): Inferred 2 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "registradores_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 32
-        Info (286033): Parameter WIDTHAD_A set to 5
-        Info (286033): Parameter NUMWORDS_A set to 32
-        Info (286033): Parameter WIDTH_B set to 32
-        Info (286033): Parameter WIDTHAD_B set to 5
-        Info (286033): Parameter NUMWORDS_B set to 32
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "registradores_rtl_1" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 32
-        Info (286033): Parameter WIDTHAD_A set to 5
-        Info (286033): Parameter NUMWORDS_A set to 32
-        Info (286033): Parameter WIDTH_B set to 32
-        Info (286033): Parameter WIDTHAD_B set to 5
-        Info (286033): Parameter NUMWORDS_B set to 32
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Warning (10850): Verilog HDL warning at CPMath.v(76): number of words (8) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 76
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 166
+Info (12128): Elaborating entity "displayReg" for hierarchy "displayReg:saida" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 169
+Info (12128): Elaborating entity "binToBCD" for hierarchy "binToBCD:toBCD" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 172
+Info (12128): Elaborating entity "seteSegmentos" for hierarchy "seteSegmentos:digito2" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 175
+Info (12128): Elaborating entity "DeBounce" for hierarchy "DeBounce:btnEnter" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 179
 Info (278001): Inferred 3 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: /home-local/aluno/CPMath/CPMath.v Line: 142
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: /home-local/aluno/CPMath/CPMath.v Line: 140
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home-local/aluno/CPMath/CPMath.v Line: 141
-Info (12130): Elaborated megafunction instantiation "altsyncram:registradores_rtl_0"
-Info (12133): Instantiated megafunction "altsyncram:registradores_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "32"
-    Info (12134): Parameter "WIDTHAD_A" = "5"
-    Info (12134): Parameter "NUMWORDS_A" = "32"
-    Info (12134): Parameter "WIDTH_B" = "32"
-    Info (12134): Parameter "WIDTHAD_B" = "5"
-    Info (12134): Parameter "NUMWORDS_B" = "32"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_lbi1.tdf
-    Info (12023): Found entity 1: altsyncram_lbi1 File: /home-local/aluno/CPMath/db/altsyncram_lbi1.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: /home-local/aluno/CPMath/CPMath.v Line: 142
-Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: /home-local/aluno/CPMath/CPMath.v Line: 142
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 142
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 144
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 143
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 142
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 142
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hkm.tdf
+    Info (12023): Found entity 1: lpm_divide_hkm File: C:/Users/mathe/Desktop/CPMath/db/lpm_divide_hkm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/mathe/Desktop/CPMath/db/sign_div_unsign_9nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
+    Info (12023): Found entity 1: alt_u_div_6af File: C:/Users/mathe/Desktop/CPMath/db/alt_u_div_6af.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/mathe/Desktop/CPMath/db/add_sub_7pc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/mathe/Desktop/CPMath/db/add_sub_8pc.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 144
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 144
     Info (12134): Parameter "LPM_WIDTHA" = "32"
     Info (12134): Parameter "LPM_WIDTHB" = "32"
     Info (12134): Parameter "LPM_WIDTHP" = "64"
@@ -958,98 +753,60 @@ Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following para
     Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
-    Info (12023): Found entity 1: mult_7dt File: /home-local/aluno/CPMath/db/mult_7dt.tdf Line: 30
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: /home-local/aluno/CPMath/CPMath.v Line: 140
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: /home-local/aluno/CPMath/CPMath.v Line: 140
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hkm.tdf
-    Info (12023): Found entity 1: lpm_divide_hkm File: /home-local/aluno/CPMath/db/lpm_divide_hkm.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_9nh File: /home-local/aluno/CPMath/db/sign_div_unsign_9nh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
-    Info (12023): Found entity 1: alt_u_div_6af File: /home-local/aluno/CPMath/db/alt_u_div_6af.tdf Line: 26
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: /home-local/aluno/CPMath/db/add_sub_7pc.tdf Line: 22
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: /home-local/aluno/CPMath/db/add_sub_8pc.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home-local/aluno/CPMath/CPMath.v Line: 141
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home-local/aluno/CPMath/CPMath.v Line: 141
+    Info (12023): Found entity 1: mult_7dt File: C:/Users/mathe/Desktop/CPMath/db/mult_7dt.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 143
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 143
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
-    Info (12023): Found entity 1: lpm_divide_kcm File: /home-local/aluno/CPMath/db/lpm_divide_kcm.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_kcm File: C:/Users/mathe/Desktop/CPMath/db/lpm_divide_kcm.tdf Line: 24
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following DSP element node(s):
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult7" File: /home-local/aluno/CPMath/db/mult_7dt.tdf Line: 66
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_7dt:auto_generated|mac_out8" File: /home-local/aluno/CPMath/db/mult_7dt.tdf Line: 90
+        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult7" File: C:/Users/mathe/Desktop/CPMath/db/mult_7dt.tdf Line: 66
+        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_7dt:auto_generated|mac_out8" File: C:/Users/mathe/Desktop/CPMath/db/mult_7dt.tdf Line: 90
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13014): Ignored 84 buffer(s)
     Info (13019): Ignored 84 SOFT buffer(s)
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "display2[0]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display2[1]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display2[2]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display2[3]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display2[4]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display2[5]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display2[6]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display1[0]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display1[1]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display1[2]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display1[3]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display1[4]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display1[5]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display1[6]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display0[0]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display0[1]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display0[2]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display0[3]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display0[4]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display0[5]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
-    Warning (13410): Pin "display0[6]" is stuck at GND File: /home-local/aluno/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display2[0]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display2[1]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display2[2]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display2[3]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display2[4]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display2[5]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display2[6]" is stuck at VCC File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display1[0]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display1[1]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display1[2]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display1[3]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display1[4]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display1[5]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display1[6]" is stuck at VCC File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display0[1]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display0[2]" is stuck at GND File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
+    Warning (13410): Pin "display0[6]" is stuck at VCC File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 11
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file /home-local/aluno/CPMath/output_files/CPMath.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/mathe/Desktop/CPMath/output_files/CPMath.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 17 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "switch[0]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[1]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[2]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[3]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[4]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[5]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[6]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[7]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[8]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[9]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[10]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[11]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[12]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[13]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[14]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "switch[15]" File: /home-local/aluno/CPMath/CPMath.v Line: 4
-    Warning (15610): No output dependent on input pin "btn_enter" File: /home-local/aluno/CPMath/CPMath.v Line: 5
-Info (21057): Implemented 17569 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 19884 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 127 output pins
-    Info (21061): Implemented 17353 logic cells
-    Info (21064): Implemented 64 RAM segments
+    Info (21061): Implemented 19732 logic cells
     Info (21062): Implemented 6 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 51 warnings
-    Info: Peak virtual memory: 1100 megabytes
-    Info: Processing ended: Sat Jun 22 19:47:44 2019
-    Info: Elapsed time: 00:00:39
-    Info: Total CPU time (on all processors): 00:00:54
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 4965 megabytes
+    Info: Processing ended: Mon Jun 24 03:58:43 2019
+    Info: Elapsed time: 00:00:58
+    Info: Total CPU time (on all processors): 00:01:10
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /home-local/aluno/CPMath/output_files/CPMath.map.smsg.
+The suppressed messages can be found in C:/Users/mathe/Desktop/CPMath/output_files/CPMath.map.smsg.
 
 
