@@ -1,6 +1,6 @@
 EDA Netlist Writer report for CPMath
-Mon Jun 24 03:59:35 2019
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Tue Jul  2 15:01:21 2019
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
 
 
 ---------------------
@@ -17,7 +17,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -36,7 +36,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Jun 24 03:59:35 2019 ;
+; EDA Netlist Writer Status ; Successful - Tue Jul  2 15:01:21 2019 ;
 ; Revision Name             ; CPMath                                ;
 ; Top-level Entity Name     ; CPMath                                ;
 ; Family                    ; Cyclone IV E                          ;
@@ -50,7 +50,8 @@ refer to the applicable agreement for further details.
 ; Option                                                                                            ; Setting                   ;
 +---------------------------------------------------------------------------------------------------+---------------------------+
 ; Tool Name                                                                                         ; ModelSim-Altera (Verilog) ;
-; Generate functional simulation netlist                                                            ; On                        ;
+; Generate functional simulation netlist                                                            ; Off                       ;
+; Time scale                                                                                        ; 1 ps                      ;
 ; Truncate long hierarchy paths                                                                     ; Off                       ;
 ; Map illegal HDL characters                                                                        ; Off                       ;
 ; Flatten buses into individual nodes                                                               ; Off                       ;
@@ -65,13 +66,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+----------------------------------------------------------+
-; Simulation Generated Files                               ;
-+----------------------------------------------------------+
-; Generated Files                                          ;
-+----------------------------------------------------------+
-; C:/Users/mathe/Desktop/CPMath/simulation/qsim//CPMath.vo ;
-+----------------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Simulation Generated Files                                                    ;
++-------------------------------------------------------------------------------+
+; Generated Files                                                               ;
++-------------------------------------------------------------------------------+
+; /media/aluno/MATHANIDO/final/simulation/qsim//CPMath_7_1200mv_85c_slow.vo     ;
+; /media/aluno/MATHANIDO/final/simulation/qsim//CPMath_min_1200mv_0c_fast.vo    ;
+; /media/aluno/MATHANIDO/final/simulation/qsim//CPMath.vo                       ;
+; /media/aluno/MATHANIDO/final/simulation/qsim//CPMath_7_1200mv_85c_v_slow.sdo  ;
+; /media/aluno/MATHANIDO/final/simulation/qsim//CPMath_min_1200mv_0c_v_fast.sdo ;
+; /media/aluno/MATHANIDO/final/simulation/qsim//CPMath_v.sdo                    ;
++-------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -79,8 +85,8 @@ refer to the applicable agreement for further details.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Copyright (C) 2018  Intel Corporation. All rights reserved.
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
+    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.
     Info: Your use of Intel Corporation's design tools, logic functions 
     Info: and other software and tools, and its AMPP partner logic 
     Info: functions, and any output files from any of the foregoing 
@@ -93,15 +99,19 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Mon Jun 24 03:59:32 2019
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=C:/Users/mathe/Desktop/CPMath/simulation/qsim/ CPMath -c CPMath
-Info (119006): Selected device EP4CE115F29C7 for design "CPMath"
+    Info: Processing started: Tue Jul  2 15:01:14 2019
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory=/media/aluno/MATHANIDO/final/simulation/qsim/ CPMath -c CPMath
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file CPMath.vo in folder "C:/Users/mathe/Desktop/CPMath/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file CPMath_7_1200mv_85c_slow.vo in folder "/media/aluno/MATHANIDO/final/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file CPMath_min_1200mv_0c_fast.vo in folder "/media/aluno/MATHANIDO/final/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file CPMath.vo in folder "/media/aluno/MATHANIDO/final/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file CPMath_7_1200mv_85c_v_slow.sdo in folder "/media/aluno/MATHANIDO/final/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file CPMath_min_1200mv_0c_v_fast.sdo in folder "/media/aluno/MATHANIDO/final/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file CPMath_v.sdo in folder "/media/aluno/MATHANIDO/final/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4694 megabytes
-    Info: Processing ended: Mon Jun 24 03:59:35 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 1095 megabytes
+    Info: Processing ended: Tue Jul  2 15:01:22 2019
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:05
 
 

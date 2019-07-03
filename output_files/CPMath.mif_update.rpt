@@ -1,6 +1,6 @@
 MIF/HEX Update report for CPMath
-Mon Jun 24 03:50:35 2019
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Tue Jul  2 22:42:36 2019
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
 
 
 ---------------------
@@ -16,7 +16,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -32,22 +32,24 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------+
-; MIF/HEX Update Summary                                    ;
-+-----------------------+-----------------------------------+
-; MIF/HEX Update Status ; Failed - Mon Jun 24 03:50:35 2019 ;
-; Revision Name         ; CPMath                            ;
-; Top-level Entity Name ; CPMath                            ;
-; Family                ; Cyclone IV E                      ;
-; Device                ; EP4CE115F29C7                     ;
-+-----------------------+-----------------------------------+
++---------------------------------------------------------------+
+; MIF/HEX Update Summary                                        ;
++-----------------------+---------------------------------------+
+; MIF/HEX Update Status ; Successful - Tue Jul  2 22:42:36 2019 ;
+; Revision Name         ; CPMath                                ;
+; Top-level Entity Name ; CPMath                                ;
+; Family                ; Cyclone IV E                          ;
+; Device                ; EP4CE115F29C7                         ;
++-----------------------+---------------------------------------+
 
 
-+--------------------------------+
-; MIF/HEX Update Processed Files ;
-+--------------------------------+
-; File Name                      ;
-+--------------------------------+
++----------------------------------------------------------------------------------+
+; MIF/HEX Update Processed Files                                                   ;
++----------------------------------------------------------------------------------+
+; File Name                                                                        ;
++----------------------------------------------------------------------------------+
+; /home-local/aluno/Área de trabalho/final/db/CPMath.ram0_CPMath_9457bb02.hdl.mif ;
++----------------------------------------------------------------------------------+
 
 
 +-------------------------+
@@ -55,16 +57,20 @@ refer to the applicable agreement for further details.
 +-------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime MIF/HEX Update
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Jun 24 03:50:34 2019
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
+    Info: Processing started: Tue Jul  2 22:42:34 2019
 Info: Command: quartus_cdb CPMath -c CPMath --update_mif
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Warning (39023): Can't find Memory Initialization File memoria.mif -- skipped updates for this file
-Error (39022): Found no valid Memory Initialization File to process
-Error: Quartus Prime MIF/HEX Update was unsuccessful. 1 error, 2 warnings
-    Error: Peak virtual memory: 4775 megabytes
-    Error: Processing ended: Mon Jun 24 03:50:35 2019
-    Error: Elapsed time: 00:00:01
-    Error: Total CPU time (on all processors): 00:00:01
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home-local/aluno/Área de trabalho/final/db/CPMath.ram0_CPMath_9457bb02.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home-local/aluno/Área de trabalho/final/db/CPMath.ram0_CPMath_9457bb02.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home-local/aluno/Área de trabalho/final/db/CPMath.ram0_CPMath_9457bb02.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home-local/aluno/Área de trabalho/final/db/CPMath.ram0_CPMath_9457bb02.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (39024): Processed the following Memory Initialization File(s)
+    Info (39025): Processed Memory Initialization File /home-local/aluno/Área de trabalho/final/db/CPMath.ram0_CPMath_9457bb02.hdl.mif File: /home-local/aluno/Área de trabalho/final/db/CPMath.ram0_CPMath_9457bb02.hdl.mif Line: 0
+Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 1234 megabytes
+    Info: Processing ended: Tue Jul  2 22:42:36 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 

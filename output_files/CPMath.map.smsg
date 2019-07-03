@@ -1,1 +1,1 @@
-Info (10281): Verilog HDL Declaration information at CPMath.v(37): object "display" differs only in case from object "Display" in the same scope File: C:/Users/mathe/Desktop/CPMath/CPMath.v Line: 37
+Info (10281): Verilog HDL Declaration information at CPMath.v(3): object "pc" differs only in case from object "PC" in the same scope File: /home-local/aluno/Área de trabalho/final/CPMath.v Line: 3

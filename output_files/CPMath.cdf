@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("/home-local/aluno/CPMath/output_files/") File("CPMath.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("/home-local/aluno/Área de trabalho/final/output_files/") File("CPMath.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

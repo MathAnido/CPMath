@@ -1,6 +1,6 @@
 Flow report for CPMath
-Mon Jun 24 03:59:35 2019
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Tue Jul  2 23:02:23 2019
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
 
 
 ---------------------
@@ -21,7 +21,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -37,26 +37,26 @@ refer to the applicable agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Jun 24 03:59:35 2019       ;
-; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                      ; CPMath                                      ;
-; Top-level Entity Name              ; CPMath                                      ;
-; Family                             ; Cyclone IV E                                ;
-; Device                             ; EP4CE115F29C7                               ;
-; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 19,636                                      ;
-;     Total combinational functions  ; 10,692                                      ;
-;     Dedicated logic registers      ; 9,394                                       ;
-; Total registers                    ; 9394                                        ;
-; Total pins                         ; 146                                         ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 6                                           ;
-; Total PLLs                         ; 0                                           ;
-+------------------------------------+---------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Flow Summary                                                                         ;
++------------------------------------+-------------------------------------------------+
+; Flow Status                        ; Successful - Tue Jul  2 23:02:23 2019           ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Standard Edition ;
+; Revision Name                      ; CPMath                                          ;
+; Top-level Entity Name              ; CPMath                                          ;
+; Family                             ; Cyclone IV E                                    ;
+; Device                             ; EP4CE115F29C7                                   ;
+; Timing Models                      ; Final                                           ;
+; Total logic elements               ; 5,900 / 114,480 ( 5 % )                         ;
+;     Total combinational functions  ; 5,836 / 114,480 ( 5 % )                         ;
+;     Dedicated logic registers      ; 374 / 114,480 ( < 1 % )                         ;
+; Total registers                    ; 374                                             ;
+; Total pins                         ; 67 / 529 ( 13 % )                               ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 10,240 / 3,981,312 ( < 1 % )                    ;
+; Embedded Multiplier 9-bit elements ; 6 / 532 ( 1 % )                                 ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                                   ;
++------------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/24/2019 03:57:46 ;
+; Start date & time ; 07/02/2019 22:59:48 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CPMath              ;
 +-------------------+---------------------+
@@ -75,12 +75,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 2543711158273.156135946611676          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 141568271718711.156211918828518        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
@@ -95,30 +96,30 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:56     ; 1.0                     ; 4965 MB             ; 00:01:08                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4672 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4694 MB             ; 00:00:03                           ;
-; Total                ; 00:01:00     ; --                      ; --                  ; 00:01:12                           ;
+; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 1029 MB             ; 00:00:36                           ;
+; Fitter               ; 00:02:07     ; 1.0                     ; 1844 MB             ; 00:03:02                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 838 MB              ; 00:00:04                           ;
+; Total                ; 00:02:32     ; --                      ; --                  ; 00:03:42                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                    ;
-+----------------------+------------------+------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; MathAnido-PC     ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; MathAnido-PC     ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; MathAnido-PC     ; Windows 10 ; 10.0       ; x86_64         ;
-+----------------------+------------------+------------+------------+----------------+
++------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                          ;
++----------------------+------------------+------------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name          ; OS Version ; Processor type ;
++----------------------+------------------+------------------+------------+----------------+
+; Analysis & Synthesis ; D132609          ; Debian GNU/Linux ; 9          ; x86_64         ;
+; Fitter               ; D132609          ; Debian GNU/Linux ; 9          ; x86_64         ;
+; Assembler            ; D132609          ; Debian GNU/Linux ; 9          ; x86_64         ;
++----------------------+------------------+------------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off CPMath -c CPMath
-quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off CPMath -c CPMath --vector_source=C:/Users/mathe/Desktop/CPMath/Waveform.vwf --testbench_file=C:/Users/mathe/Desktop/CPMath/simulation/qsim/Waveform.vwf.vt
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=C:/Users/mathe/Desktop/CPMath/simulation/qsim/ CPMath -c CPMath
+quartus_fit --read_settings_files=off --write_settings_files=off CPMath -c CPMath
+quartus_asm --read_settings_files=off --write_settings_files=off CPMath -c CPMath
 
 
 

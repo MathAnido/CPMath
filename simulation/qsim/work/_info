@@ -7,69 +7,69 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dC:/Users/mathe/Desktop/cpmath/simulation/qsim
+d/home-local/aluno/Documentos/Downloads/simulation/qsim
 vCPMath
-Z0 !s110 1561359579
+Z0 !s110 1562090484
 !i10b 1
-!s100 EO=jQiTbH03HicBz[_LG40
-IIV=jm]bgP4c[d106Q=nB_3
+!s100 oQn1S1>EUD`=j2GAzcP_T2
+IXF76_EiZngd_akia>gbSk0
 Z1 VDg1SIo80bB@j0V0VzS_@n1
-Z2 dC:/Users/mathe/Desktop/CPMath/simulation/qsim
-w1561359575
-Z3 8CPMath.vo
-Z4 FCPMath.vo
+Z2 d/media/aluno/MATHANIDO/final/simulation/qsim
+Z3 w1562090479
+Z4 8CPMath.vo
+Z5 FCPMath.vo
 L0 31
-Z5 OV;L;10.5b;63
+Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1561359576.000000
-Z6 !s107 CPMath.vo|
-Z7 !s90 -work|work|CPMath.vo|
+Z7 !s108 1562090483.000000
+Z8 !s107 CPMath.vo|
+Z9 !s90 -work|work|CPMath.vo|
 !i113 1
-Z8 o-work work
-Z9 tCvgOpt 0
+Z10 o-work work
+Z11 tCvgOpt 0
 n@c@p@math
 vCPMath_vlg_vec_tst
-R0
+!s110 1562090489
 !i10b 1
-!s100 0_>[zZCR>KKReB3aoD[1l2
-I<6EFIoi[_oLl7K?]D1CXB1
+!s100 cA6K0P?0B3SV6bn2;?mo[3
+I^S1k8f]6:RXXL_XC>nbk?3
 R1
 R2
-w1561359572
-8Waveform.vwf.vt
-FWaveform.vwf.vt
+w1562090473
+8Waveform1.vwf.vt
+FWaveform1.vwf.vt
 L0 29
-R5
+R6
 r1
 !s85 0
 31
-!s108 1561359579.000000
-!s107 Waveform.vwf.vt|
-!s90 -work|work|Waveform.vwf.vt|
+!s108 1562090486.000000
+!s107 Waveform1.vwf.vt|
+!s90 -work|work|Waveform1.vwf.vt|
 !i113 1
-R8
-R9
+R10
+R11
 n@c@p@math_vlg_vec_tst
 vhard_block
-!s110 1561356961
+R0
 !i10b 1
-!s100 _:=9Si>l4Xj:i>SnZB;^D3
-Ihd52bV[Z[_N::KC`mXFJ:2
+!s100 XW4[mRP1N?:]J0FQ^9<Cf1
+IdDKe6koSF1ghH@IZV31Bn3
 R1
 R2
-w1561356957
 R3
 R4
-L0 438132
 R5
+L0 77860
+R6
 r1
 !s85 0
 31
-!s108 1561356958.000000
-R6
 R7
-!i113 1
 R8
 R9
+!i113 1
+R10
+R11
